@@ -1,0 +1,1228 @@
+VN GESTÃO
+ESPECIFICAÇÃO TÉCNICA E FUNCIONAL AVANÇADA
+Arquitetura, estabilidade, integridade de dados, processos, monitoramento e gestão de incidentes
+Documento complementar ao Projeto Mestre VN Gestão
+Objetivo: orientar a especificação, desenvolvimento, implantação, testes, manutenção e evolução da plataforma VN Gestão, com padrões profissionais de engenharia de software, arquitetura de sistemas, segurança da informação, controladoria e gestão de operações.
+
+1. DIRETRIZ GERAL DE DESENVOLVIMENTO
+O VN Gestão deverá ser desenvolvido como uma plataforma empresarial integrada, modular, escalável, segura e orientada a processos.
+Não deverá ser tratado como um conjunto de telas independentes.
+Cada funcionalidade deverá possuir:
+Objetivo funcional.
+Regras de negócio.
+Estrutura de dados.
+Permissões.
+Validações.
+Fluxo operacional.
+Dependências.
+Integrações.
+Tratamento de erros.
+Histórico.
+Auditoria.
+Indicadores.
+Critérios de aceite.
+Testes automatizados.
+A implementação deverá considerar desde o início que haverá múltiplas empresas, diferentes usuários, diferentes processos, integrações externas e operações financeiras sensíveis.
+1.1. Princípios obrigatórios
+Integridade dos dados.
+Isolamento absoluto entre clientes.
+Rastreabilidade das operações.
+Segurança por padrão.
+Separação de responsabilidades.
+Consistência entre módulos.
+Prevenção de duplicidades.
+Recuperação de falhas.
+Monitoramento contínuo.
+Controle de alterações.
+Versionamento de regras e processos.
+Testabilidade.
+Escalabilidade.
+Disponibilidade.
+Experiência operacional simples.
+Princípio central: nenhuma operação crítica poderá ser considerada concluída apenas porque o usuário clicou em um botão. O sistema deverá confirmar que a operação foi efetivamente processada e registrar seu resultado.
+2. ARQUITETURA FUNCIONAL E TÉCNICA
+2.1. Organização por módulos
+A aplicação deverá possuir módulos independentes do ponto de vista funcional, mas integrados por serviços e contratos de comunicação.
+Módulos principais:
+Autenticação e segurança.
+Empresas e clientes.
+Usuários e permissões.
+CRM e comercial.
+Contratos e serviços.
+Financeiro.
+Contas a pagar.
+Contas a receber.
+Pagamentos e aprovações.
+Conciliação.
+Fechamento financeiro.
+Demandas e tarefas.
+Processos e automações.
+Documentos.
+Comunicação.
+Chamados e ocorrências.
+Compliance e auditoria.
+Gestão de colaboradores.
+Rentabilidade e controladoria.
+Integrações.
+Inteligência artificial.
+Monitoramento técnico.
+Administração da plataforma.
+Cada módulo deverá possuir suas próprias regras, validações e serviços, evitando que uma funcionalidade altere diretamente dados internos de outra sem passar pelos mecanismos definidos de integração.
+2.2. Arquitetura recomendada
+Adotar uma arquitetura modular, com separação clara entre:
+Frontend
+Interface responsiva.
+Componentes reutilizáveis.
+Formulários padronizados.
+Validações de interface.
+Controle de permissões visuais.
+Feedback de processamento.
+Estados de carregamento, sucesso, falha e indisponibilidade.
+Backend
+Regras de negócio.
+Autorização.
+Validações.
+Serviços financeiros.
+Processamento de operações.
+Integrações.
+Geração de relatórios.
+Gestão de processos.
+Tratamento de exceções.
+Banco de dados
+Dados estruturados.
+Relacionamentos.
+Restrições de integridade.
+Histórico.
+Versionamento.
+Isolamento multiempresa.
+Serviços auxiliares
+Fila de processamento.
+Agendador de tarefas.
+Serviço de notificações.
+Serviço de documentos.
+Serviço de auditoria.
+Monitoramento.
+Integrações externas.
+Inteligência artificial.
+A escolha entre monólito modular e serviços distribuídos deverá considerar o volume inicial, a complexidade operacional, os custos de infraestrutura e a capacidade de manutenção. A recomendação inicial é um monólito modular bem estruturado, com limites claros entre módulos e possibilidade de extração futura de serviços.
+2.3. Separação de ambientes
+Manter ambientes independentes:
+Desenvolvimento.
+Testes automatizados.
+Homologação.
+Produção.
+Nenhuma alteração deverá ser testada diretamente em produção.
+Dados reais de clientes não deverão ser utilizados em desenvolvimento sem autorização, proteção e anonimização apropriadas.
+
+3. PADRÃO OBRIGATÓRIO DE FUNCIONALIDADES
+Toda funcionalidade do VN Gestão deverá seguir um padrão único de implementação.
+3.1. Estrutura de uma funcionalidade
+Cada funcionalidade deverá conter:
+Elemento
+Requisito
+Identificação
+Código único
+Módulo
+Área responsável
+Objetivo
+Resultado esperado
+Usuários
+Quem pode utilizar
+Permissões
+Ações autorizadas
+Dados
+Campos e relacionamentos
+Validações
+Regras de consistência
+Processo
+Etapas de execução
+Dependências
+Outros módulos envolvidos
+Erros
+Possíveis falhas
+Auditoria
+Histórico de ações
+Notificações
+Eventos relevantes
+Testes
+Cenários obrigatórios
+Aceite
+Condições para conclusão
+
+3.2. Padrão das telas
+Todas as telas deverão possuir, conforme aplicabilidade:
+Identificação do cliente.
+Identificação do módulo.
+Título da funcionalidade.
+Status do registro.
+Responsável.
+Data de criação.
+Data de atualização.
+Histórico.
+Documentos relacionados.
+Particularidades do cliente.
+Instruções operacionais.
+Alertas.
+Ações disponíveis.
+Botão de ajuda ou suporte.
+Opção de reportar problema.
+Cada tela deverá informar claramente o que está acontecendo e o que o usuário pode fazer em seguida.
+3.3. Estados padronizados
+Todos os módulos deverão utilizar estados consistentes.
+Exemplos:
+Rascunho.
+Pendente.
+Em processamento.
+Em análise.
+Aguardando terceiro.
+Aguardando aprovação.
+Aprovado.
+Reprovado.
+Com divergência.
+Bloqueado.
+Concluído.
+Cancelado.
+Falha no processamento.
+Os estados deverão possuir transições permitidas. O sistema não poderá aceitar mudanças arbitrárias de status.
+
+4. VN SERVICE DESK — CENTRAL INTERNA DE CHAMADOS, INCIDENTES E DIVERGÊNCIAS
+4.1. Objetivo
+Criar um módulo central para registrar, classificar, encaminhar, acompanhar e resolver qualquer problema identificado dentro do VN Gestão ou durante a execução dos serviços.
+O módulo deverá atender a duas finalidades:
+Registrar problemas técnicos do próprio sistema.
+Registrar divergências financeiras, operacionais, cadastrais e processuais encontradas pela equipe.
+O módulo será utilizado pelos operadores, analistas, supervisores, gestores e administradores da VN.
+O gestor deverá possuir uma visão central de todos os problemas identificados, seu impacto, responsável, prazo, evolução e solução.
+4.2. Categorias de chamados
+A. Incidentes técnicos
+Sistema indisponível.
+Tela não carrega.
+Erro ao salvar.
+Erro ao atualizar.
+Falha de autenticação.
+Lentidão.
+Erro de processamento.
+Falha de consulta.
+Erro de relatório.
+Erro de exportação.
+Erro de importação.
+Falha de integração.
+Erro de sincronização.
+Notificação não enviada.
+Arquivo não anexado.
+Registro duplicado indevidamente.
+Dados não atualizados.
+Falha de permissões.
+Problema de segurança.
+B. Divergências financeiras
+Saldo divergente.
+Conciliação inconsistente.
+Pagamento duplicado.
+Recebimento não identificado.
+Valor diferente do documento.
+Lançamento incorreto.
+Categoria divergente.
+Centro de custo incorreto.
+Conta bancária inconsistente.
+DRE com diferença.
+Totalização incorreta.
+Diferença entre ERP e VN Gestão.
+C. Divergências cadastrais
+CNPJ inconsistente.
+Fornecedor duplicado.
+Dados bancários divergentes.
+Cadastro incompleto.
+Contato desatualizado.
+Dados de cliente incorretos.
+D. Falhas de processo
+Etapa não executada.
+Atividade sem responsável.
+Aprovação ausente.
+Prazo descumprido.
+Checklist incompleto.
+Processo bloqueado indevidamente.
+Automação não executada.
+Regra aplicada incorretamente.
+E. Segurança e acesso
+Usuário sem acesso necessário.
+Usuário com permissão indevida.
+Tentativa de acesso não autorizado.
+Suspeita de exposição de dados.
+Falha de autenticação.
+Credencial comprometida.
+F. Integrações
+Google Drive indisponível.
+Google Sheets sem sincronização.
+ERP sem resposta.
+API externa indisponível.
+Token expirado.
+Dados recebidos incompletos.
+Falha de autenticação externa.
+4.3. Classificação e prioridade
+Cada chamado deverá possuir prioridade e severidade separadas.
+Prioridade operacional
+Baixa.
+Normal.
+Alta.
+Urgente.
+Severidade técnica ou de negócio
+S1 — Crítica: risco de segurança, perda ou corrupção de dados, indisponibilidade geral ou comprometimento de operação financeira crítica.
+S2 — Alta: funcionalidade essencial indisponível ou divergência com impacto relevante.
+S3 — Média: problema localizado com alternativa operacional segura.
+S4 — Baixa: falha visual, melhoria ou problema sem impacto operacional significativo.
+A prioridade deverá considerar impacto, urgência e quantidade de usuários ou clientes afetados.
+4.4. Campos obrigatórios do chamado
+Número do protocolo.
+Código interno.
+Data e horário.
+Usuário solicitante.
+Cliente relacionado, quando aplicável.
+Módulo de origem.
+Tela de origem.
+Funcionalidade afetada.
+Categoria.
+Subcategoria.
+Título.
+Descrição.
+Passos para reproduzir.
+Resultado esperado.
+Resultado obtido.
+Frequência do problema.
+Prioridade.
+Severidade.
+Impacto.
+Responsável atual.
+Equipe responsável.
+Prazo de atendimento.
+Evidências.
+Histórico.
+Solução aplicada.
+Validação.
+Data de encerramento.
+4.5. Abertura automática de chamados
+O sistema deverá conseguir abrir chamados automaticamente quando detectar falhas relevantes.
+Exemplos:
+Erro ao salvar
+Usuário tenta salvar um lançamento.
+Backend retorna erro.
+Sistema registra o evento técnico.
+Verifica se é um erro conhecido ou repetitivo.
+Preserva os dados preenchidos sempre que possível.
+Exibe mensagem compreensível.
+Cria incidente interno quando a falha atender aos critérios de abertura.
+Encaminha para a equipe responsável.
+Notifica o gestor conforme severidade.
+Divergência na conciliação
+Sistema identifica diferença.
+Compara os registros envolvidos.
+Calcula e registra a diferença.
+Identifica origem provável, quando possível.
+Cria ocorrência financeira.
+Se a divergência decorrer de falha do sistema, abre também chamado técnico.
+Encaminha ao responsável.
+Mantém o processo em estado de atenção ou bloqueio, conforme regra.
+Aguarda análise e validação.
+Falha na integração
+Integração não responde.
+Sistema registra horário, serviço e operação.
+Classifica o erro.
+Realiza novas tentativas somente conforme política segura.
+Evita duplicar operações.
+Abre chamado quando exceder o limite de falhas.
+Notifica o responsável.
+Permite reprocessamento controlado após correção.
+4.6. Botão “Reportar problema” em todas as telas
+Todas as telas principais deverão possuir uma ação acessível:
+Reportar problema / Abrir chamado interno.
+Ao clicar, o sistema deverá preencher automaticamente:
+Usuário.
+Cliente.
+Módulo.
+Tela.
+Registro relacionado.
+Data e horário.
+Versão da aplicação.
+Identificador de correlação da operação, quando existente.
+O usuário deverá informar:
+O que aconteceu.
+O que esperava que acontecesse.
+Se o problema impede a continuidade.
+Evidências ou anexos.
+O usuário não deverá precisar explicar manualmente onde ocorreu o problema.
+O formulário deverá alertar para não anexar senhas, códigos de autenticação ou informações sensíveis desnecessárias.
+4.7. Fluxo de tratamento do chamado
+Fluxo padrão:
+Aberto.
+Triagem.
+Classificação.
+Atribuição.
+Em análise.
+Em correção.
+Aguardando informação.
+Em validação.
+Resolvido.
+Encerrado.
+Caminhos adicionais:
+Reaberto.
+Duplicado.
+Cancelado.
+Não reproduzido.
+Encaminhado a terceiro.
+Monitoramento após correção.
+Toda mudança de status deverá registrar responsável, data, motivo e observação.
+4.8. Encaminhamento por responsabilidade
+O sistema deverá direcionar os chamados conforme categoria.
+Categoria
+Destino inicial
+Erro de aplicação
+Equipe técnica
+Banco de dados
+Responsável técnico
+Integração
+Equipe de integração
+Divergência financeira
+Supervisor financeiro
+Processo operacional
+Gestor da operação
+Permissões
+Administrador
+Segurança
+Responsável por segurança
+Relatórios
+Equipe técnica ou controladoria
+Problema de cliente
+Responsável pela carteira
+
+O gestor da VN deverá conseguir visualizar todos os chamados e redistribuir responsabilidades.
+4.9. Escalonamento para gestão
+Chamados críticos deverão ser escalonados automaticamente.
+Exemplo:
+S1: notificação imediata ao gestor e responsável técnico.
+S2: encaminhamento prioritário.
+S3: fila regular com prazo definido.
+S4: fila de melhorias.
+O gestor poderá:
+Assumir o chamado.
+Designar responsável.
+Alterar prioridade com justificativa.
+Solicitar análise.
+Bloquear operação afetada.
+Aprovar plano de contingência.
+Acompanhar resolução.
+Reabrir chamado.
+Encerrar após validação.
+4.10. Painel gerencial de chamados
+Criar dashboard chamado VN Central de Incidentes.
+Indicadores:
+Chamados abertos.
+Chamados críticos.
+Chamados em atraso.
+Chamados por módulo.
+Chamados por cliente.
+Chamados por categoria.
+Chamados por responsável.
+Tempo médio de primeira resposta.
+Tempo médio de resolução.
+Reincidência.
+Chamados reabertos.
+Incidentes por versão.
+Incidentes por integração.
+Problemas aguardando terceiro.
+Problemas resolvidos sem validação.
+Filtros:
+Período.
+Cliente.
+Módulo.
+Categoria.
+Severidade.
+Responsável.
+Situação.
+Origem automática ou manual.
+4.11. Base de conhecimento
+Todo chamado resolvido poderá gerar um artigo interno.
+Conteúdo:
+Problema.
+Causa.
+Como identificar.
+Como corrigir.
+Como prevenir.
+Módulo afetado.
+Versão corrigida.
+Responsável técnico.
+Quando o mesmo erro ocorrer novamente, o sistema poderá sugerir a solução documentada.
+4.12. Encerramento e validação
+Um chamado não deverá ser encerrado apenas porque alguém informou que corrigiu.
+Deverá existir:
+Correção aplicada.
+Evidência da correção.
+Teste realizado.
+Validação do solicitante ou responsável autorizado.
+Registro da solução.
+Confirmação de encerramento.
+Chamados críticos deverão exigir validação adicional.
+
+5. VN INCIDENT MANAGEMENT — GESTÃO DE INCIDENTES TÉCNICOS
+A Central de Chamados deverá ser complementada por um mecanismo técnico de incidentes.
+5.1. Diferença entre evento, erro e incidente
+Evento: algo aconteceu no sistema.
+Erro: uma operação não ocorreu como esperado.
+Incidente: falha que exige resposta coordenada.
+Problema: causa raiz ou condição que gera um ou mais incidentes.
+Mudança: alteração planejada para corrigir ou evoluir o sistema.
+Um único incidente poderá gerar vários chamados relacionados.
+Exemplo: uma falha de integração pode afetar cinco clientes. O sistema deverá permitir registrar um incidente principal e vincular os cinco chamados ou ocorrências relacionados.
+5.2. Registro técnico do incidente
+Guardar:
+Identificador único.
+Serviço afetado.
+Módulo.
+Versão.
+Ambiente.
+Data e horário.
+Duração.
+Quantidade de ocorrências.
+Clientes impactados.
+Operações afetadas.
+Severidade.
+Erro técnico.
+Identificador de correlação.
+Responsável.
+Medida de contenção.
+Correção.
+Validação.
+Não registrar senhas, tokens ou conteúdo financeiro sensível desnecessário nos logs.
+5.3. Gestão de problemas e causa raiz
+Para incidentes relevantes, criar análise de causa raiz.
+Campos:
+Sintoma.
+Causa técnica.
+Causa operacional.
+Condições que permitiram o erro.
+Impacto.
+Como foi detectado.
+Por que os controles anteriores não impediram.
+Correção definitiva.
+Prevenção.
+Responsável.
+Prazo.
+Utilizar análise estruturada, como os cinco porquês, quando apropriado.
+5.4. Gestão de mudanças técnicas
+Toda alteração relevante deverá possuir:
+Solicitação.
+Justificativa.
+Escopo.
+Módulos afetados.
+Riscos.
+Plano de testes.
+Plano de implantação.
+Plano de reversão.
+Aprovação.
+Versão.
+Histórico.
+Mudanças emergenciais deverão possuir justificativa e revisão posterior.
+
+6. ESTABILIDADE E INTEGRIDADE DOS DADOS
+6.1. Regras de persistência
+O sistema deverá evitar perda de informações durante:
+Atualizações de página.
+Queda de conexão.
+Falha de API.
+Erro de validação.
+Expiração de sessão.
+Interrupção do processamento.
+Quando tecnicamente possível, preservar formulários em rascunho e permitir retomada segura.
+6.2. Prevenção de duplicidades
+Operações críticas deverão utilizar mecanismos de idempotência.
+Exemplos:
+Importação de lançamentos.
+Criação de pagamentos.
+Processamento de lotes.
+Sincronização de dados.
+Recebimento de notificações externas.
+Uma mesma solicitação repetida não poderá gerar duas operações financeiras.
+6.3. Transações
+Operações que envolvam várias alterações relacionadas deverão utilizar transações consistentes.
+Exemplo: ao aprovar um lote, o sistema deverá registrar a aprovação, atualizar o estado do lote e gerar os eventos necessários de forma consistente.
+Se ocorrer falha, o sistema deverá impedir estados parcialmente gravados ou utilizar mecanismo de compensação documentado.
+6.4. Histórico imutável de operações críticas
+Aprovações, alterações relevantes, operações financeiras e eventos de segurança deverão possuir trilha de auditoria protegida contra alteração comum.
+Correções deverão ser registradas como novos eventos, sem apagar o histórico anterior.
+6.5. Backups e recuperação
+Definir:
+Frequência de backups.
+Retenção.
+Criptografia.
+Armazenamento independente.
+Testes de restauração.
+Plano de recuperação.
+Responsável.
+Registro de execução.
+Definir objetivos de recuperação:
+RPO: quantidade máxima aceitável de dados que poderia ser perdida em um incidente.
+RTO: tempo máximo desejado para restabelecer o serviço.
+Os valores deverão ser definidos conforme criticidade, custo e capacidade operacional, e validados em testes reais.
+
+7. MONITORAMENTO TÉCNICO E OBSERVABILIDADE
+Criar módulo interno chamado VN System Health.
+7.1. Monitoramento da aplicação
+Monitorar:
+Disponibilidade.
+Tempo de resposta.
+Taxa de erros.
+Falhas de autenticação.
+Erros de API.
+Falhas de processamento.
+Uso de memória.
+Uso de CPU.
+Conexões com banco.
+Filas pendentes.
+Processos travados.
+7.2. Monitoramento dos módulos
+Cada módulo deverá disponibilizar indicadores técnicos.
+Exemplo:
+Financeiro
+Falhas ao salvar.
+Lançamentos rejeitados.
+Processamentos incompletos.
+Pagamentos
+Lotes com falha.
+Aprovações não processadas.
+Reprocessamentos pendentes.
+Importações
+Arquivos recebidos.
+Arquivos processados.
+Registros rejeitados.
+Erros de mapeamento.
+Integrações
+Conexões ativas.
+Tokens expirados.
+Última sincronização.
+Falhas consecutivas.
+Notificações
+Mensagens enviadas.
+Mensagens rejeitadas.
+Mensagens pendentes.
+Falhas de entrega.
+7.3. Logs estruturados
+Os logs deverão possuir:
+Data e horário.
+Identificador do evento.
+Usuário ou serviço.
+Módulo.
+Operação.
+Cliente, quando aplicável.
+Identificador de correlação.
+Resultado.
+Código de erro.
+Severidade.
+Os logs deverão respeitar políticas de privacidade e retenção.
+7.4. Alertas técnicos
+Alertar o responsável quando:
+Serviço ficar indisponível.
+Taxa de erros aumentar.
+Banco apresentar falhas.
+Fila acumular.
+Integração falhar repetidamente.
+Backup não for concluído.
+Processamento ficar travado.
+Tentativas de acesso suspeitas forem identificadas.
+O sistema deverá distinguir alertas informativos de incidentes que exigem ação imediata.
+
+8. ESPECIFICAÇÃO FUNCIONAL DOS MÓDULOS PRINCIPAIS
+8.1. Autenticação e usuários
+Funcionalidades
+Login.
+Recuperação de acesso.
+MFA.
+Gestão de sessões.
+Convites.
+Ativação e bloqueio de usuários.
+Controle de tentativas.
+Expiração de sessão.
+Histórico de acesso.
+Processo
+Usuário informa credenciais.
+Sistema valida identidade.
+Verifica situação da conta.
+Executa MFA quando exigido.
+Carrega permissões.
+Define contexto autorizado.
+Registra acesso.
+Falhas
+Credencial incorreta.
+MFA inválido.
+Conta bloqueada.
+Sessão expirada.
+Permissão ausente.
+Controles
+Mensagens seguras.
+Limite de tentativas.
+Auditoria.
+Bloqueio temporário.
+Revogação de sessões.
+8.2. Cadastro de clientes
+Funcionalidades
+Cadastro manual.
+Importação.
+Validação de documentos.
+Cadastro de contatos.
+Unidades e filiais.
+Regime tributário.
+Sistemas.
+Bancos.
+Responsáveis.
+Particularidades.
+Processo
+Criar cadastro.
+Validar informações.
+Identificar duplicidades.
+Revisar dados.
+Configurar usuários.
+Definir serviços.
+Criar contrato.
+Liberar onboarding.
+Falhas
+CNPJ inválido.
+Cadastro duplicado.
+Campos obrigatórios ausentes.
+Dados inconsistentes.
+O sistema deverá impedir duplicidades indevidas e manter histórico de alterações.
+8.3. CRM e comercial
+Funcionalidades
+Leads.
+Pipeline.
+Propostas.
+Diagnóstico.
+Reuniões.
+Follow-up.
+Conversão.
+Processo
+Entrada do lead.
+Identificação da origem.
+Atendimento.
+Diagnóstico.
+Proposta.
+Negociação.
+Aprovação.
+Conversão em cliente.
+A conversão deverá reaproveitar os dados existentes, evitando novo cadastro manual.
+8.4. Contratos e serviços
+Funcionalidades
+Catálogo.
+Pacotes.
+Valores.
+Escopo.
+Vigência.
+Aditivos.
+Renovação.
+Reajustes.
+Processo
+Selecionar serviços.
+Definir escopo.
+Calcular preço.
+Aprovar proposta.
+Gerar contrato.
+Registrar assinatura.
+Ativar serviços.
+Gerar rotinas.
+Mudanças contratuais deverão atualizar as rotinas futuras sem alterar indevidamente o histórico de atividades já executadas.
+8.5. Financeiro — contas a pagar
+Funcionalidades
+Cadastro de despesas.
+Fornecedores.
+Parcelas.
+Vencimentos.
+Categorias.
+Centros de custo.
+Anexos.
+Aprovações.
+Pagamentos.
+Histórico.
+Processo
+Receber documento.
+Extrair informações.
+Validar fornecedor.
+Conferir valores.
+Verificar duplicidade.
+Classificar.
+Definir vencimento.
+Salvar lançamento.
+Encaminhar para aprovação quando aplicável.
+Incluir em lote.
+Confirmar pagamento.
+Conciliar.
+Validações
+Valor positivo.
+Data válida.
+Fornecedor existente ou autorizado.
+Documento associado quando exigido.
+Centro de custo válido.
+Ausência de duplicidade.
+Regra de aprovação atendida.
+8.6. Financeiro — contas a receber
+Funcionalidades
+Clientes pagadores.
+Receitas.
+Parcelas.
+Vencimentos.
+Recebimentos.
+Baixas.
+Cobrança.
+Inadimplência.
+Conciliação.
+Processo
+Registrar receita.
+Identificar pagador.
+Definir vencimento.
+Acompanhar recebimento.
+Identificar crédito.
+Conciliar.
+Baixar.
+Atualizar fluxo de caixa.
+Encaminhar inadimplência para cobrança.
+Créditos sem identificação deverão permanecer em análise, sem baixa automática indevida.
+8.7. Pagamentos e aprovações
+Funcionalidades
+Lotes.
+Pagamentos individuais.
+Conferência.
+Aprovação.
+Reprovação.
+Correção.
+Inclusão bancária.
+Confirmação.
+Auditoria.
+Processo
+Montar lote.
+Validar pagamentos.
+Conferir.
+Revisar.
+Enviar ao cliente.
+Aprovar.
+Registrar autorização.
+Liberar inclusão bancária.
+Registrar inclusão.
+Confirmar efetivação.
+Conciliar.
+Nenhuma mudança crítica poderá preservar uma aprovação anterior.
+8.8. Conciliação bancária
+Funcionalidades
+Importação de extratos.
+Identificação de movimentações.
+Correspondência com lançamentos.
+Conciliação automática sugerida.
+Conciliação manual.
+Divergências.
+Ajustes.
+Revisão.
+Processo
+Receber extrato.
+Validar formato.
+Importar movimentações.
+Identificar duplicidades.
+Comparar registros.
+Sugerir correspondências.
+Exibir divergências.
+Registrar justificativas.
+Revisar.
+Concluir.
+A conciliação automática deverá utilizar critérios configuráveis e apresentar nível de confiança. Casos ambíguos deverão exigir análise humana.
+8.9. Fechamento financeiro
+Funcionalidades
+Checklist.
+Documentos.
+Conciliações.
+Pendências.
+DRE.
+Revisão.
+Aprovação.
+Entrega.
+Processo
+Abrir competência.
+Reunir documentos.
+Importar informações.
+Conciliar.
+Revisar classificações.
+Resolver divergências.
+Conferir resultados.
+Gerar DRE.
+Revisar.
+Aprovar.
+Entregar.
+O fechamento deverá possuir bloqueios configuráveis e justificativas formais para pendências não impeditivas.
+8.10. Demandas e processos
+Funcionalidades
+Tarefas.
+Rotinas.
+Recorrência.
+Checklists.
+Responsáveis.
+Prazos.
+Dependências.
+Evidências.
+Revisão.
+Conclusão.
+Processo
+Geração automática ou manual.
+Atribuição.
+Execução.
+Registro de evidência.
+Revisão.
+Correção quando necessário.
+Aprovação.
+Encerramento.
+O sistema deverá permitir identificar tarefas vencidas, sem responsável ou bloqueadas.
+8.11. Documentos e importação
+Funcionalidades
+Upload.
+OCR.
+Classificação.
+Extração.
+Mapeamento.
+Validação.
+Associação.
+Versionamento.
+Histórico.
+Processo
+Receber arquivo.
+Verificar integridade.
+Identificar tipo.
+Extrair dados.
+Validar informações.
+Apresentar prévia.
+Solicitar confirmação.
+Importar.
+Registrar resultado.
+Erros parciais deverão apresentar exatamente quais registros foram aceitos e quais foram rejeitados.
+8.12. Integrações externas
+Cada integração deverá possuir:
+Identificação.
+Cliente vinculado.
+Provedor.
+Escopo de autorização.
+Status.
+Última sincronização.
+Próxima execução.
+Histórico.
+Erros.
+Tentativas.
+Responsável.
+Fluxo
+Autorizar integração.
+Validar conexão.
+Registrar configuração.
+Sincronizar.
+Validar dados.
+Processar.
+Registrar resultado.
+Monitorar.
+Alertar falhas.
+Utilizar filas, limites de requisição, retentativas controladas e mecanismos de idempotência.
+8.13. Relatórios e dashboards
+Funcionalidades
+Indicadores.
+Filtros.
+Comparativos.
+Exportações.
+Relatórios programados.
+Visões por cliente.
+Visões por colaborador.
+Visões por serviço.
+Os relatórios deverão identificar competência, data de geração, origem dos dados e filtros aplicados.
+Resultados financeiros deverão ser reconciliáveis com os registros de origem.
+8.14. Comunicação e chamados
+Funcionalidades
+Mensagens.
+Notificações.
+Chamados.
+Comentários.
+Anexos.
+SLA.
+Escalonamento.
+Histórico.
+Avaliação.
+As mensagens relevantes poderão ser vinculadas a demandas, contratos e ocorrências, mas não deverão substituir os registros oficiais de aprovação ou operação financeira.
+
+9. MODELO DE DADOS E RELACIONAMENTOS
+A modelagem deverá considerar entidades centrais e seus vínculos.
+Entidades principais:
+Empresa.
+Cliente.
+Unidade.
+Usuário.
+Perfil.
+Permissão.
+Colaborador.
+Contrato.
+Serviço.
+Pacote.
+Conta bancária.
+Fornecedor.
+Pagador.
+Lançamento.
+Parcela.
+Pagamento.
+Lote.
+Aprovação.
+Extrato.
+Movimentação.
+Conciliação.
+Documento.
+Demanda.
+Tarefa.
+Processo.
+Versão de processo.
+Particularidade.
+Regra.
+Chamado.
+Incidente.
+Ocorrência.
+Notificação.
+Integração.
+Evento de auditoria.
+Cada registro deverá possuir identificador único e contexto de empresa/cliente conforme aplicabilidade.
+9.1. Integridade referencial
+Não permitir exclusão de registros que possuam dependências relevantes sem tratamento adequado.
+Preferir:
+Arquivamento.
+Cancelamento.
+Inativação.
+Estorno.
+Registro de correção.
+O histórico financeiro deverá ser preservado.
+9.2. Isolamento multiempresa
+Todas as consultas, alterações, exportações e operações deverão validar o contexto do cliente no backend.
+Não confiar apenas em filtros aplicados na interface.
+O sistema deverá possuir testes automatizados para impedir acesso cruzado entre empresas.
+
+10. AUTORIZAÇÃO, SEGURANÇA E SEGREGAÇÃO DE FUNÇÕES
+Implementar autorização no servidor para cada operação.
+Permissões por:
+Usuário.
+Perfil.
+Módulo.
+Cliente.
+Unidade.
+Ação.
+Valor.
+Tipo de registro.
+Contexto operacional.
+Exemplos de ações:
+Consultar.
+Criar.
+Editar.
+Excluir ou arquivar.
+Aprovar.
+Reprovar.
+Exportar.
+Baixar.
+Reprocessar.
+Configurar.
+Administrar.
+Operações financeiras sensíveis deverão possuir segregação de funções, evitando que o mesmo usuário execute e aprove a própria operação quando a regra exigir independência.
+
+11. MOTOR DE AUTOMAÇÃO E FILAS
+Processos demorados ou externos deverão ser executados em segundo plano quando apropriado.
+Exemplos:
+Importação de grandes arquivos.
+OCR.
+Sincronização.
+Geração de relatórios.
+Envio de notificações.
+Processamento de lotes.
+Análises de IA.
+Cada execução deverá possuir:
+Identificador.
+Origem.
+Status.
+Data de início.
+Data de conclusão.
+Tentativas.
+Resultado.
+Erro.
+Próxima ação.
+Criar fila de falhas para análise e reprocessamento controlado.
+Uma falha de notificação não deverá apagar ou reverter uma aprovação financeira já registrada.
+
+12. TESTES E GARANTIA DE QUALIDADE
+12.1. Testes unitários
+Validar regras individuais:
+Cálculo de valores.
+Cálculo de vencimentos.
+Validação de CNPJ.
+Cálculo de saldos.
+Regras de aprovação.
+Classificações.
+Transições de status.
+12.2. Testes de integração
+Validar comunicação entre:
+Financeiro e pagamentos.
+Pagamentos e aprovações.
+Financeiro e conciliação.
+Documentos e lançamentos.
+Processos e tarefas.
+Chamados e incidentes.
+Clientes e permissões.
+Integrações e importações.
+12.3. Testes de ponta a ponta
+Simular jornadas completas.
+Exemplo:
+ Cadastro de cliente → contrato → serviço → demanda → lançamento → aprovação → inclusão bancária → pagamento → conciliação → fechamento → relatório.
+12.4. Testes de segurança
+Acesso indevido.
+Escalada de privilégios.
+Acesso cruzado entre clientes.
+Sessões expiradas.
+Tentativas repetidas.
+Manipulação de identificadores.
+Exposição de documentos.
+Exportação sem permissão.
+12.5. Testes de desempenho
+Muitos usuários simultâneos.
+Grandes importações.
+Consultas extensas.
+Relatórios pesados.
+Filas acumuladas.
+Sincronizações simultâneas.
+12.6. Testes de recuperação
+Simular:
+Queda do banco.
+Falha de API.
+Interrupção de integração.
+Erro durante importação.
+Falha de processamento.
+Restauração de backup.
+Toda funcionalidade crítica deverá possuir cenários de sucesso, falha, repetição, concorrência e recuperação.
+
+13. EXPERIÊNCIA DO USUÁRIO E PREVENÇÃO DE ERROS
+O sistema deverá orientar o usuário antes que um erro aconteça.
+Exemplos:
+Avisar que o fornecedor já existe.
+Alertar sobre vencimento inválido.
+Destacar documento ausente.
+Informar que o lote precisa de aprovação.
+Indicar por que uma operação está bloqueada.
+Preservar informações digitadas em caso de falha.
+Explicar qual campo precisa ser corrigido.
+Mensagens deverão ser claras, sem apresentar apenas códigos técnicos.
+Exemplo:
+Mensagem ao usuário:
+ “Não foi possível concluir a conciliação. Existe uma diferença de R$ 250,00 entre o extrato e os lançamentos vinculados. A operação foi mantida em análise.”
+Registro interno:
+ Código técnico, identificador da operação, módulo, horário e detalhes necessários para diagnóstico.
+
+14. GOVERNANÇA E INDICADORES DE ESTABILIDADE
+Criar painel administrativo para acompanhar a saúde da plataforma.
+Indicadores:
+Disponibilidade.
+Erros por módulo.
+Incidentes por severidade.
+Tempo médio de detecção.
+Tempo médio de recuperação.
+Chamados abertos.
+Chamados atrasados.
+Reincidência.
+Falhas de integração.
+Falhas de importação.
+Processamentos pendentes.
+Erros de autenticação.
+Backups concluídos.
+Restaurações testadas.
+Versões em produção.
+Definir metas de serviço e limites de alerta conforme criticidade.
+Indicadores técnicos não deverão ser misturados com indicadores de produtividade da equipe de BPO.
+
+15. CRITÉRIOS DE ACEITE PARA PUBLICAÇÃO
+Uma funcionalidade somente poderá ser liberada quando:
+O fluxo estiver documentado.
+As regras de negócio estiverem validadas.
+Os campos e relacionamentos estiverem definidos.
+As permissões estiverem testadas.
+Os controles de integridade estiverem ativos.
+O tratamento de falhas estiver implementado.
+Os logs estiverem disponíveis.
+Os testes automatizados estiverem aprovados.
+Os testes de integração estiverem concluídos.
+A experiência do usuário estiver validada.
+A documentação estiver atualizada.
+O plano de reversão estiver definido quando aplicável.
+O gestor responsável tiver aprovado a homologação.
+Nenhuma funcionalidade crítica deverá ser considerada pronta apenas porque sua interface está funcionando.
+
+16. PLANO DE IMPLANTAÇÃO TÉCNICA
+Etapa 1 — Fundação
+Arquitetura.
+Banco de dados.
+Autenticação.
+Multiempresa.
+Permissões.
+Logs.
+Ambientes.
+Monitoramento básico.
+Etapa 2 — Governança e suporte
+VN Service Desk.
+Chamados internos.
+Incidentes.
+Auditoria.
+Notificações.
+Gestão de mudanças.
+Painel do gestor.
+Etapa 3 — Operação
+Clientes.
+Contratos.
+Serviços.
+Demandas.
+Processos.
+Particularidades.
+Documentos.
+Etapa 4 — Financeiro
+Contas a pagar.
+Contas a receber.
+Pagamentos.
+Aprovações.
+Conciliação.
+Fechamento.
+Etapa 5 — Integrações e automações
+APIs.
+Filas.
+Google Workspace.
+Importações.
+Sincronizações.
+Reprocessamento.
+Etapa 6 — Inteligência e otimização
+VN IA.
+Análise de riscos.
+Indicadores.
+Rentabilidade.
+Previsões.
+Análises de estabilidade.
+
+17. RESULTADO ESPERADO
+O VN Gestão deverá funcionar como uma plataforma de gestão e controle empresarial, capaz de acompanhar tanto a operação dos clientes quanto a própria estabilidade do sistema.
+A equipe deverá saber:
+O que precisa fazer.
+Como deve executar.
+Qual regra deve observar.
+Quem precisa revisar.
+Quem precisa aprovar.
+Qual é o prazo.
+Quais documentos são necessários.
+Qual etapa está bloqueada.
+Como tratar uma divergência.
+Como registrar um problema.
+Quem é responsável pela solução.
+A gestão da VN deverá saber:
+Quais clientes estão impactados.
+Quais módulos apresentam falhas.
+Quais processos estão comprometidos.
+Quais chamados precisam de intervenção.
+Quem está tratando cada problema.
+Qual é a causa provável.
+Qual é o prazo de resolução.
+Se a correção foi testada.
+Se o problema voltou a ocorrer.
+DIRETRIZ FINAL DE ENGENHARIA
+O VN Gestão deverá ser projetado para prevenir falhas, detectar anormalidades, preservar a integridade dos dados, permitir recuperação controlada, registrar evidências e garantir que nenhum problema relevante fique sem responsável ou acompanhamento.
+A estabilidade do sistema não será tratada como uma tarefa posterior ao desenvolvimento. Será um requisito arquitetural e funcional presente desde a fundação da plataforma.
+Mais do que executar processos, o VN Gestão deverá garantir que os processos sejam executados corretamente, com segurança, controle e capacidade de auditoria.
+

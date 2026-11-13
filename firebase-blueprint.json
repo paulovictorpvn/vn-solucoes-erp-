@@ -1,0 +1,57 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User account profile and credentials",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "maxLength": 128 },
+        "email": { "type": "string", "format": "email", "maxLength": 256 },
+        "name": { "type": "string", "maxLength": 128 },
+        "role": { "type": "string", "enum": ["gestor", "supervisor", "analista", "comercial", "engenharia"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email"]
+    },
+    "Client": {
+      "title": "Client",
+      "description": "BPO Client enterprise record",
+      "type": "object",
+      "properties": {
+        "id": { "type": "integer" },
+        "code": { "type": "string", "maxLength": 32 },
+        "name": { "type": "string", "maxLength": 256 },
+        "tradeName": { "type": "string", "maxLength": 256 },
+        "cnpj": { "type": "string", "maxLength": 20 }
+      },
+      "required": ["id", "code", "name", "cnpj"]
+    },
+    "FinancialEntry": {
+      "title": "FinancialEntry",
+      "description": "Payable or receivable financial entry",
+      "type": "object",
+      "properties": {
+        "id": { "type": "integer" },
+        "clientId": { "type": "integer" },
+        "type": { "type": "string", "enum": ["PAGAR", "RECEBER"] },
+        "amount": { "type": "string", "maxLength": 32 },
+        "dueDate": { "type": "string", "maxLength": 16 }
+      },
+      "required": ["id", "clientId", "type", "amount", "dueDate"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/User" },
+      "description": "User profiles"
+    },
+    "/clients/{clientId}": {
+      "schema": { "$ref": "#/entities/Client" },
+      "description": "Client records"
+    },
+    "/financialEntries/{entryId}": {
+      "schema": { "$ref": "#/entities/FinancialEntry" },
+      "description": "Financial ledger entries"
+    }
+  }
+}

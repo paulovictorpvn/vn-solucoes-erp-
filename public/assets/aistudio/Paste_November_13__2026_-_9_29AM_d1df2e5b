@@ -1,0 +1,1252 @@
+<!doctype html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VN Soluções · BPO Financeiro e Serviços Administrativos</title>
+  <meta name="description" content="VN Soluções: Mais que serviços, uma parceria para o seu negócio. BPO Financeiro, implantação de ERP e retaguarda administrativa.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            vn: {
+              navy: '#0B2A6B',
+              dark: '#061942',
+              blue: '#1676F3',
+              orange: '#F26B1D',
+              orangeHover: '#D95A12',
+              light: '#F8FAFC',
+              surface: '#F1F5F9'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #0F172A;
+      background-color: #FFFFFF;
+      overflow-x: hidden;
+    }
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .hero-pattern {
+      background-color: #0B2A6B;
+      background-image: 
+        radial-gradient(at 88% 12%, rgba(22, 118, 243, 0.35) 0px, transparent 50%),
+        radial-gradient(at 10% 85%, rgba(242, 107, 29, 0.22) 0px, transparent 45%);
+    }
+    .card-hover {
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 25px -5px rgba(11, 42, 107, 0.08), 0 8px 10px -6px rgba(11, 42, 107, 0.04);
+    }
+    .fade-in {
+      animation: fadeIn 0.4s ease-out forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-vn-orange selection:text-white">
+
+  <!-- HEADER / NAVBAR -->
+  <header class="fixed top-0 inset-x-0 z-50 glass-nav border-b border-slate-200/80 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      <a href="#" class="flex items-center gap-3 shrink-0">
+        <img src="data:image/png;base64,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分解/1813/v/G3Pbv9zZq+vz2697O55CrXWVvWxOs43uEQJU4koLRSm5p/V1m4lhCqIE4fGjJpB9bOolV4JkIwZezXDE8+vWG7akfHzNGkJXf/4/efJfsOGuuOI4u7XwzfFSj4vDsZFffQaCQVkhHgil/oUnFDaYJ2AmBS0V/0VE7dcjYeL4VhDFUWoh2xd1ycfC9mYzOFvUHcM6u4dvnnjmnYsr6JnkOtVj08rG2zn7QcfuNfWd9z3IjfWq1SYqtUVZEyC0+ydEjsFQDng1ua2R58Yc9SBO30wS51yaP9734hKWPQ8H0oSiU4k5+aMg1Zaplcmy2Qq1m26aa/jjtz93Rffao6ck8WrerjTWAIfoRZNl8PoT8dF/Lj/ySEQUAe8puJ+8Iv/3HfD+cMG9X0vSRFXP1WkhkGaPG1kw5bdwjWSNYhOXMxd5pxJEMHK1c2VsJJzCgmiBiIgQGx9wf8ETdesCa0oiqXKqjWtM+cuW7qyaXVzS3t7MQytYe7WWNenV7f+/XoP7r9xXUO+4Hux9Iy74hWoRLZvBI6qB+/dmD5bZVwvaCTa8QVdmYFLB78SqpY24+x5KxYsWr6qqaW1WARoW0Pdxr279+3TfdPN+nQv5HJB4K0fboYqheIF2TopV8Ily5rmLlqxYnVLa1uxXAkBDYKgoaFQ11Co61bXvXuj5/m+73u+x8y+x8wMZg48J9o67a2Z6b27lZ9+X5J2hJ7171v3yHNjp8yY19K2+h2tV7P7bE36fj2en1+fNGvEy+O8vHooOjghuGJpqy03/9znDttiwGZNbcWXR49/7rlXVy1bbgqBkq9CwgZkqJADUdlWSqvLRIbzdQRHKkTOtRa3Hj74hKN2ryWz3x8YzQXmkh+eOmHagjenzfU9tgKnHIWQmSVW47N+LPPUIRtoWrOnpZbjODuQSumkklCJi28QqL4XKJO2tzff8/grs2YtvfT8U444YLva1ekUFvCAhU3y7f/MffCV5cbD8xGqUYrycBJR8WJQJXi0CkmJoiyOUSWQJRLfVwiNm2/fmGcfeNNdfETuoMGfHskFAVRx19hwxlLnpUREEvH6Sc+EVEoJ3qSqUROlNfqqhmhnHEvk+B10R8lBK0kDScToUwEIeqep+2PZ+gGjndD1eg4Ftty8z6mf2+9Xv7/dM77COTVOKapRNT4mK6hSjEejrDJBbBiGXs6MGj3xlTHTjt932y5k+3h22pylI14c61cV+CqB77X97u7hI59835+rU40UiiZ8b5VSpj5+5813f/n4/XfbbmBvvqN69fjP1b944fWxI197c9bsxW9Pmvb1H07+zU/O6NXtE5+xG4P+G/U49/P77b/3sA0B6tOj4YwTDxh22N6DB21aq3P9h7iN31w8Z+7S6299esrMeYsWL7/hH/fdfc+L3/ry4V8+75sDt+j7gV+h7g11Xzh+z6+cuu/W34w7h1+fu+T9j821//9xFj0d++z3Z3z95ANHj5v8f7c+Ne6taU1NrR9w5x3Waa++Pb986kEnHLf3HjsN7de7Z8N7l28eN2HmrbeO+OO1j97+n7F//c9rf/zj1X/4y203/+u/F/3qpm9ccu3/XHzdj35x/fe+edUvfv3vG/5937PPj9uw230M+f5hZ+i/73v+jvsfe3X81Hfe65z/P43z9z/56l13j3h75rK356z7/b/uP+20n990z8tvTZv/4qjxf/rr3V8976//d/G/b73vpb+PvP+03979rR9dfeuDI199c8YHr02LpfDX/7zt/938/KOTp78xafqDj7z0tXOv/N5FV996z3+Hjxj74Iuvf3DR1bdf/dj9d4+8/d5nXnr947fnLfr7f5646fZnfvXb/3z2rF9fcsW9dz30ysgRk55/Z+7o9+Y+/Nz48y65b9Y8m216d6Q/r517T+f99X9aD0//ROLRaNo9PbmyrLlkWAWewFNiZBtYKOG6UZKsZ0aMuv1/r3z22AP22GnrbocM33r7HbY9+cQDfv2r7054f9Zbr03t9tF/tB6a9q2+s1uXNv/417mffvXEQ4cPrq7v783s1zT37s37n3z84XvvttU+ew7bfNNeDfWFT0U+sO9Gm/36wlM2/8weW9z909/8+oLT9915G3wK4q7q2+75x+9P/d73z9vvwB1OPOmgrXff9rIfn/W7i884+ci9P4J9X07Zdcet995ja+d2rP+6d66p0K2uU8m3q3fZ9/eW1p69erz81A0r5k576bmRRx64U6c+9tZ+V+8eDcfsu+1PL/7m23PHj3vtma/98Nyv/uCcr5x/xr77Dtv9gB32O+vQ8y664G8jH7lpx522+h/5/rX/d6vX+d/W5/f6n+/+6f+ef+Cqn/3i2K9+78Lvf+/8r37v67/9xfeOO+/3F1/6u1/86g9XXP7HX11y9RVX3viTn93wi1/++bJrf/b3W664684rLrn2+h+/9M4Hb705ftK48W/ffdeT3/n2n75x3mUX/+6my6645b+Pj3r9lbevvf3py6/77423PH7nvaOuv/7+2+5+9s57Xrjl9meuvPah2+9+9u1JMyfPXD5r0Yp7Hnzp93+546/XPfD+lHnLl60a9eaM51565477Xn990rRlrSU431oqt7WXV69Z19La7gUepd3R59G324d862x3/7o1p9N0z/vG1r9+83t69/y47+o9+422+4b85e0r3B/w/u6z3+C1X761w/p26227f//N+nbt3rVrl87N+jW2bN67W5vW9et269y9X8+B2w/dfu9dh51wyAEnfG6fU47d72tfPOj4w/fYf/ch++65zW57Dtp51y233W7gwCEbbz6k385bb3nAftt966xjjz3q08cetscu2w0+bP/h+20/+AvH7f3D807++jlf/fZXjvj80Xt/8/wjTvj8fmeffvCpR++z/947HHbA7scesffpJx50zmmHfeOco7973glnfuHzhxy423bDt/zcUfuectzeJxy263GH73rsoTvtuv2g2+669qEHfnD4AZ+p1uJ//f877bD5j8476bwzj0A12tH/3/n//7+f+v8/XHHc0Xtf+cNTfv39Lw4Z0qdrx7qW+p79ev/8pycfdOAw/H/9/3333u66y08cPrhX/P+7tK37500XnfPFL3Rr37y6X3764bvsP3z4N/54488uv3r9+s79/x2H9r/16nPP+/6pR31mz3/+4qzzf3Lq3sP7dX79f336n/D5vS4+78Rvnv2l3XbavHvr8qE9Gx8f/pvrb7nggD236tGtvn+3xjNO3PeaS0+674bfPnLb7374rWOP+ey+fbrVP/m3K//062+dduJBg/p079u9Q69e3TbdpO/gAZsMH7bNdtvssu3g3Qdtss+2g4fvtuWOOwzcctBmXds39m7XYq9dhrz434s/fGPEi3dcfsrxe+y0zRY9O3Xs3qV93x79Ntu4/+B+W+y/52HHHX76l08+84zjTjn64P1P/PzRpx9z2JeP+sxJxxyw247bbL5J/8026rXV4AF77L7tPvvtvv12W3/x88d+9axz+vXps9duOz1+/w2ffjB9w8r1V15759W33Pv0i9f+59rLDj9836EDB/Xs1rlb1+7NW7Rs3qJF1669+23Ua/vthtxwzfdv/s8l1117ya/++JOD9t79w3cfGT996m03XH7l7y45/4yDzjhu90ceuv7O2y994PbL7/vvT/9y9Y8uPveY333vq7/+7ld+c8Gp11182nUXf+Gvl3/zh986/oTDBg3bsstB+2331ZN2/+pX9j37tD0u+sFJF1/w5St/d+Z5Zx3864u//sPLfnL138+98P8+f+U5J1543knXfOP073z30JOO/swF5x7/u6u/ce6ZXzr51H2/dt5J3/juV0447Yivfu/0L37+0D9ddcaPLv7a+T/+0mlnHnP8Kced+a3TvnzeN75w5rG77L/9Ttvu+v3zv//9r38OAE4d0U/W61Z68cX3jzz7hheef+P99974+a9+d/2N97797vtPPX7r53bd/r037n3+0Vs/ee+Z99547KWnn/v4/bc+fv+Nt1557oO3Hnr3xXv++58f3H7z1bfff+u/H7jx7mcvfvKBy//5+y+8/s+fv/3sX8dMeP75f51z128PuefX3503ZcSLf//j2Cee2H333f/9wF//cc/9jz300MMP3H/P3Xf855//vufue/5199+fe/6hP15/98P/++0dt//r3w/88/5/3fPU8y8++/zLTzz7/G9v/MeDj/zn5VfG/v6qW/9w7V2P3P/K2LFTvvPd3z784MPPf/T+s8+/987bM9avW//y6Mcf+/933X/vnZdff+Ptdz/z6vixL732+rNPPv3aC8+9P+bNp5544sX/PfX40/c+eO+//nfv7X/+6/3333bV1Zd8+N/nv7j2gV/+6pZ//vuh++9/Z/zY2Y89PPbGm+96+ulb77v31v88+M9H7//vHff87e7H7378jTde/+/9l/z5+r99NPq9Z5665x/X/e2Jx5744aU3/PXW/95y2xN/+8eD111/55/+/sDVf7rjH/9+4eFH/jt6/OsvvPbiuPGvPPnc8/9+8N4H7/nb5ddfcvl1l/3w4suuuu3vN9/79I1/uPeKa+6+/b437rz3sXv/99yDf/711b+5/8a/PHrD3/521TWX337f9d9f83vnbX8+/6Z7/nH5L/48YsQ3vnrO5T8697cXnHbH7y761+UXP/S7b/7jwm/dcunXHrvhgn/+4rw/nXvO/13wrd+ef/5vf3L+z777vZ985wf/9/3zTvvqSV/70omH7bfX1j17jPj6qT/+4fdPP/vM887/4Z/++vc7/v7fO26797ZbH7rxL/998L+v3v/Q2+PHz3795bc/+GDsiP5f2KXfdr/58bknnbDnjntss/vOe3/7+D985/Tzfvy7n39j8A9OP/X80/c/5/uHf+uC4y+78ivfPf+4b3zn8LPOP/aMMw4985yjvnLWUV87/+gfnXfE+acf+f1vHHfR97966XlHfe7wHc/+4t7nnHnQF7+831e+cuiZ555w7k9O++EvvnL6Gce8+9r/vvrF/U/68kGH7b3dQbv1O2yv7U4+4vATj9jn8P0H77bz1kccOOgLe+3Ssmm93j3avfPGozOnP3/6Sdv+7Kdf+v3vznjgvgufffKW+24/+7Zff/22X3/tnl9/9Q/nf+HGn3/uup988VtfOerU4w8dMWznLxz3ud222q55427dWrf57o9/+81vfufcC6545NHn33z9uR/8+PJxY0Y//uAjj9/7xNP/fWH0E/c/fv8dTz3x4OOPPvTww/c/ev9djz5408MP3PjAf+65678PP/DAvx958OH/Pf7vR55+8L47b7vt8v/cd9+df/nL0088ct3VV956x+3PPPTw/fff94fb//nbe595+J6Hn3nsxVdee/2llx5+4PEXH/7fa4++MOqlp+96/L+PPv74S+PHvPvC02M/+Xjcq/eOeu2eT9585rMP314y97/1UqpVrhjZq/9Wh+w5+MRDD9h92+2/dPTx55977s9/fvn9//vHnbfe9fdbf3fdtVf+8583XH7FH6+/5o+3/f2GG2/8/U033XzdDbfdet3vLv/d+d+/5F+/v+f3v/jXZX+482c//fvvrv3j5bf+85o/3X3VNY/ddPOjf//nM//618v/uPLmP9/471/9/m/X3/7Q36954v6/vvjgq8889P6zz7zz7LNv3XvPa/c/+MrDD7z6yMMvvfzyO/f858W/X3/nP/790j/vfO7fN99/xU/vOOWUn1x7xSN/vvz23192+08v++3Vv73262d/Z+i2u57900ufev6l+0e+9pvfXX7q+T/9yveuvOjXl//wkl98/4ffOf2c84845fSf/vC7J55+/MGH7rLbrtvuuv9+u3/uCwcf8/nD9vjiUUftvf++B+y/85a9e2/dv//22w7YbZshw4ZuPXj7rfvvMGT7HTcdMHjrXQZuv3G/wbsP22+LAcOHbbvV8GFD+m7WZ9tdhuw4aOBeB35u86122HbbHbsP3mHLrXffZ4ftDzp4vyFDthgyZODee+/6uSOH7f65HbfeYdh+++72paOOOP2U0zbfcvN+fXrvscP2u2w9dIftt958y2279ujVvceAbp27t2rXpkXbNp06d6+cmNKnW9fG9Wps0q9759YNWzSt06l13R7dGjSpXaV+zbjWDZP6dmxQt3py4+oVO7et165Z3a6t6nVqVr1xncQm9ao2b9agU7t29WrU6j+ge79+vTbvO7hRvaqNGzft17Nz25aN2rZtt03/rTv36NqqRdt2bdp0a92pW8PGm7Ru1atJ603atO7duUOv1p16tW7fp0efrXv1G9C8db8mDTfv0qZ79xZt+3do37f5xlt379x/07Z9u3dq2Lhu9bp1mrVq2bJVq/YdO1eqWLFylQpVK1epVrViUkpSj679tmjftF/75q0a1+rcsnGL5o2aN2/UvGmd5vWr1K9ZrXrVKp26dGxQu2bdGtXr1m1Ur3az2tVqNa9bs2WDur06d+zcsF7n5i3a1q7fvmrNTZu2adK8Y+vmLVs3r9ulbbOerZt2b96sR6eOvdu16t2lTf/uHft177pZj3adWjeo1aBm25ZNOnVo3r13507tmzZvWrf7xu379enUqUObbp1bt2zVuHGj2vXr1enUsXWHDu0336LvoC032277zbt0b99044bNuzXr0aVdm4b1OnXp0mHj5r36d9u4S4cm7TtWrF2pWruWDRo3q9O6U9uOnVtv2q1r1016N2/eum7D+g0aNa5bv1Hr5h2bNGvauFnT6nVqtmjftmfvnl269ajXpFnjVi0btG3dsGPH9gP69ejatXP3zp3btm5du3at5s1bduzUsVOnTp06de7YsX2nTu26duu6eZ+eu+/Wbyr/xQAAEABJREFUf5ddh3bp0qlr98169uzap0/X9u17NGvepn2nbnVrN+nUuUfX7h1btmjeoFHjtu3at9u4VctWzTr1692m36bNO3dr2LpZyz79Nu7WvVe9Js0aNmmxcZ+eLTfbtF63rvU7dazRqkVyy+ZVm3VoW7ttj4ZtWzbctHnXrl1aNGvSsFnTJo3qNm9ap0OHdn026da6deu2bVu3bdWuUaPGvTp0a9eiTev27bt16dyuZcuWbdt06Nixc5s2G9dv3LRh8w4NW3Zr2b13o05dWnfq3m2T+s3aN+nSrkPHjt06de7ZokP73q269OvQtmOzxvWrVKtVpdKmDZq3a9W5U8de7Tp2bN944yZ1G9Su16J969YtWrRt16F5s6ZNm9Vt2bp1s5YtNm3WrH379j26dW/fvG18XGLb9p3atO3Qo2unNq1a9N28f+8e3br17NqiZYuuPTt37dqhU5s2bVq36tO7T/fNWnft2b51j2Ydejdv07N1827dOrRoXatZqyYNmjRs0bhR8yYNm7dvU7t+zYYd2zbr1b1zly6b9OrWoXun5o2bdunSrE2b5o0bNmrYoHnj+q1bNGvcqEHH9q1btmjar3+/Pn369OnTp3v3bh06tu7erVvHDk0bNm7cvE3L1q1aNmnVsnPnLh06dGjRsF6jxo2bNm3atU/3Xj17d+3WbePNunbu3HnjzXq0b7NJm1ZtmjXv1aV78yaN69Vv3qBBo+ZNG7Vo2q5ps2aNGtZs17Z1587tGzRo3KFD+y5denXq3KVrt427dm7bp3fL5i1atW/XvHXrVm3atG3bvkOHjh07dmzXrl2nTp169eq1xRZbdOnSpVGjRo0bN27cuHHDhg07dO7YsVu3Tp06b9Kp08adO7Xp0LF548Yde2/cpWP71p06t+vcqWu3bp07d+7YsWObNm1atGjatXOn3r027dCpS7M2bTp13LRjpw7t27dv3rJ9y5adGzft3rFzz3at2rZu3a5Ll65bbNmnc6cunTp36tq9c7feXTt27dShQ/sO3Tr26LFxzx6dO3Xt0Lljhy59unZp16l1/SZN6jVu1Kx9+7bt23Xs2LFVq1ZN2rTr0Kp5x7Zt2ndq175jh8Yt27Ro16Ztx85N2rRq0qZ1y6YN2rbq0KFFuyZNmnTq1LFdu7adN954880227h9u5YtW7Zq1apTp04NGjRo17p961Yde/bs0bFDx44dO7Zs3rR5s6adOrdv165t86ZNOm7csX3b9i2at2zRskWrVq3atWnbvGnzli1bdurYcdM+m23cbZOm7Zq1btuqU6dOHTt13LRL5w4dOnTu0rlD+/YNGjSoW6duxw4dO3Tu1KZ1i43bbtyhffv2bdu3atGmY7t2Gzdv3qpl83bt2jdu1KhVq427dOrYqVOnbt26d+3SuW/vXm07dujauUun7h1bduzQpVu31s2a9erZfdPN+rRp06ZJsybdNm7bvl2z+s1bdmzdpm2r1p3aNmvVrHmz5o2aNGrWtFm7Dh3atW/fsU2rzVq17N62U5uWLdq279B9046bbrZZ125dW7Rr26x9+5YtWrRu3bphq9btWzTr1aNLtx7dN9544y5dOvbo0aNdu3bt2rVr1rRZy5Yte2/ac4suXbZp3a5L21at27Vu1qJV164b9+7bp3WbVu06dmrRrm3X7l07tGvXvn37Zs2adezYsdPGHTZp06Z527atO3Zo3aVz904du7Rt1apVq3bt2rVqvXHjJo2aNG3atmW7ju069ti4S5cuHVu0atGuQ9umLVq0b9W6U6dOHTp0aN26devWrdu3b9+xY8eWLVq0adG8S5fOfXr17r1pr97dNm3fvG3DJo3atGzRpl27du3bd+rUqVOnThs3btyyZctWrVp17ty5Q4cOHdq0b9eyXedOG3fq0Kn9xu3bbNKufce2rVq2atG6deuNN964ZcuW7dq1a9KkSevWrdv26NKoQ5tmzVv36LFp23Zt2rVu071522btWzfr3KZ9h7bNWjfv3atnp4037tK5Y88evTbfqHe79q3atG29+eab9+7du3379q1bt27WrFm7du3at2/fqUOnzp26dOnSpXPHzp07d27QoEHLpi27de3csUOHDh06tOrYplWrVj179uzRo0fjxo3btm3bqk2rNu3btW/fvmPHjo0bNWnfoW2XDu17b77pZptt2r59+y5dujRt2rRN27YtW7bs1atX165du3Tp0qtXr7Zt2zZt2rRx48adN964T/v2PXr26N21a9dmzVt16NCuQ/t2HTt069alR4+NWrRu07x5i2bNm/Xq0aN7926bdujYvW37jTt0aNe6bZPmTZq3b9e6c9eWHTu1admyR9euXTZt07BTh8Zdu7Tu1adD127tO3Zq1rxVq5atu/fs0W+z3o1bNOvUoV2Xbp2aNWnUsV2Htm3btmndun2njtu07dCkfYcWbVu2aNu2S9t2HTp06NWrV9u2bTt37tyiRYumTZu2bNmyffv2nbt06dqlc58+fZo2bdq1a9e2bdu2a9euRYsWbdu27dWrV6dOnVq3bt2+ffu27du1adumc+fOnTp16t69e5fOHbds3qx3s6ZtWrds3rx5x44dmzdv3qlTp06dOrVr165Tp05NmjRp26ZNi9Yt27Zp2759+2bNmzZt2rRHjx7dunXr17N31y5dNm7ZqluHjt3btWvdtlXrli1bt27dtGnT9u3bt27duo0bN2rRqkXb9m3bdejYvn37du3aNW3atG3btp06derYsWPHjh07dOjQpk2bZs2atWjRomPHjk2bNWvZsmXbDh06dOrYtUvXbl07d+nSpUePLt27tm/XvkOHDo0bN27fvn3Hjh07d+7csmXL5s2bd9qkQ4u2LVq0btG8dYsWrVu2aNm8Xau2XTp26Nqpc4fOnTp37tKhW5cePbq2a9euc6dOrVq1ateuXfv27dt2aNe0dfNmzZq1bNmyRcsWHdq179ChQ6dOnbp27dq5c+cePXo0b968efPmHTt2bNq0aZs2bTp06NCyZcs2bdp0795948aNW7Ro0bp165atW7Vp3bp58+ZtW7dt1apVo0aNWrdq3bxZs9atW3fp0qVLly4tWrVo1apVq1atmjRp0q5du+bNm7dt27Zt27bt2rXr0qVLo8aN2rZt2659uzZt2nTu3LlDhw7t27dv165ds2bN2rVr16pVq+7du3fo0KFDhw7du3fv1atX69atmzRp0qRRo2ZNmrVq0rR9q1YdOnTo3Llzx44d27Vr16ZNm65du3bv3r1Dhw7t27dv3759y5YtW7Ro0bJly9atW3fq1KlFixbdu3dv06ZN586d+/Tp06VLl27duvXr169t27bt2rVr1apVx44d27Zt26lTp06dO3fs1LFTu3YdWrVo3bx58+bNm3fu0rljx47NmjVr1qxZy5YtW7Vq1bJly7Zt27Zp06Z58+bt27fv1atX9+7dO3Xq1KtXr1atWvXv3799+/YdOnTo1KlTx44d27Vr16ZNm1atWrVq1apFixatW7du3759y5YtW7Zs2bp169atW7do0aJly5atW7du1qxZ165de/XqtUm3rg0bNuzaoXPnLt0aNG7WslOHtm3btGjVsmPHjrt12bhH+/adOnbs3Llzly5d2rVr17Bhwz59+vTo0aNDhw6NGzfecsstm7Zo3rVzx+aNmzRr3qJNm9Zdu3Xp2bNHy5YtmzVr1qtXr+7du7dp06Zly5bt2rVr2rRp69at27dvnxAf36FTx3Zt27Zt375D2w4NGzXq06t32zZtW7dt2759+2bNmjVu3LhZs2YtWrRo165d69atW7du3b59+5YtW7Zp06Z58+adO3fu0KFDy5Yt27Rp0717906dOrVq1apTp06NGzdOJpNdu3Zt2rRpixYtOnXq1KFDh/bt27ds2bJDhw49e/bs0aNHz54927Vr16tXrzZt2jRt2rR169bt27fv1KnTJpt07NihY/PmLTq2b9++fcu2bds2bdq0Q4cOrVq1at26devWrdu3b9+mTZtOnTq1aNGia9eu7du379ChQ8+ePVu3bt22bdsWLVp07NixQ4cOTZo06dixY9OmTVu1atWuXbvWrVt37ty5Y8eO7du379ChQ8+ePVu0aNGzZ8/WrVu3a9euVatW3bt3b926dZcuXTp27Ni2bdtOnTq1atWqVatWrVu3btmyZY8ePVq3bt2iRYt27dq1bt26Y8eOHTp0aN26devWrdu0adOlS5eePXt26tSpS5cuLVu2bNmyZfv27Tt37tyiRYumTZu2b9++ffv2zZo1a9euXfv27Vu3bt28efO2bdu2atWqc+fOnTp1atKkSefOnVu0aNGhQ4du3bp169atY8eOHdq3b9WyVbNmzdq2bdu8efNu3bp17ty5Q4cOHdq379q1a6tWrdq3b9+iRYsuXbq0adOmffv2bdu2bdeuXffu3bt27dq5c+cuXbp06dKlX79+Xbp06dWrV5s2bTp06NChQ4dWrVr16tWrY8eOLVu2bNq0acOGDVq1atW5S+duXTp36dKlc5fObVq36tq1a8+ePdu2bduxY8fmzZt37ty5a9eunTp1at26dbt27dq2bdutW7eWLVu2a9euR48e3bp1a9OmTatWrVq2bNm+ffsmTZq0a9euXbt2rVq1ateuXY8ePVq1atW9e/dWrVp16dKlS5cunTt37t69e5cuXdq0adO1a9eWLVu2adOmVatWHTt2bNeuXceOHbt06dK1a9cuXbp06NChVatWrVq16tatW5cuXbp169auXbuuXbu2atWqQ4cOXbp0adKkSYsWLTp06NCmTZuWLVu2a9euXbt2nTp16tq1a5cuXbp169a4ceMePXp06dKlRYsWbdu27dixY5s2bVq3bt2yZcu2bdv26dOnS5cuPXv2bN26dadOnTp37tymTZsOHTq0bd26Q4cOzZs3b9WqVYsWLRo2bNilS5cOHTo0b968R48erVq1atWqVefOnVu3bt21a9eOHTt27969e/fuLVq06NixY9euXVu3bt22bdsOHTp07ty5V69eHTp06NChQ6dOnbp27dquXbuOHTt26dKldevW7du3b9myZYcOHdq1a9eqVatu3bq1bNmye/fu3bt3b968edu2bZs2bdquXbuuXbu2aNGia9euLVu27NChQ+fOnVu0aNGiRYt27dq1bt26Y8eO7dq1a9u2bYcOHdq2bdutW7cWLVq0adOmY8eO7du379ChQ8+ePVu2bNm9e/f27du3bdv2/wMAAP//z/F0J1z7+2YAAAAASUVORK5CYII=" alt="VN Soluções" class="h-11 sm:h-12 w-auto object-contain">
+      </a>
+
+      <!-- Desktop Menu -->
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-600">
+        <a href="#sobre" class="hover:text-vn-navy transition-colors">A Empresa</a>
+        <a href="#diferenciais" class="hover:text-vn-navy transition-colors">Diferenciais</a>
+        <a href="#servicos" class="hover:text-vn-navy transition-colors">Serviços</a>
+        <a href="#metodologia" class="hover:text-vn-navy transition-colors">Como Trabalhamos</a>
+        <a href="#ecossistema" class="hover:text-vn-navy transition-colors">Ecossistema</a>
+        <a href="#diagnostico" class="hover:text-vn-navy transition-colors">Diagnóstico</a>
+      </nav>
+
+      <!-- Actions -->
+      <div class="flex items-center gap-3">
+        <a href="#atendimento" class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-vn-navy bg-slate-100 hover:bg-slate-200/80 transition-colors">
+          <i data-lucide="ticket" class="w-4 h-4 text-vn-orange"></i>
+          Abrir Chamado
+        </a>
+        <a id="nav-wa" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-vn-orange hover:bg-vn-orangeHover shadow-sm shadow-vn-orange/30 transition-all cursor-pointer">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>Falar com Consultor</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-pattern pt-32 pb-20 lg:pt-40 lg:pb-28 text-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Content -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs sm:text-sm font-semibold text-blue-100">
+            <span class="w-2 h-2 rounded-full bg-vn-orange animate-pulse"></span>
+            BPO Financeiro &bull; Serviços Administrativos
+          </div>
+          
+          <h1 class="text-4xl sm:text-5xl lg:text-[3.4rem] font-extrabold tracking-tight leading-[1.12]">
+            Seu financeiro organizado.<br>
+            <span class="text-vn-orange">Seu negócio crescendo.</span>
+          </h1>
+          
+          <p class="text-lg sm:text-xl text-blue-100/90 max-w-2xl leading-relaxed font-normal">
+            Mais que serviços, uma parceria para o seu negócio. Assumimos a retaguarda financeira da sua empresa com processos claros, previsibilidade e execução diária.
+          </p>
+
+          <div class="pt-2 flex flex-col sm:flex-row gap-4">
+            <a href="#diagnostico" class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl text-base font-bold text-white bg-vn-orange hover:bg-vn-orangeHover shadow-lg shadow-vn-orange/25 transition-all">
+              <i data-lucide="activity" class="w-5 h-5"></i>
+              Fazer Diagnóstico Gratuito
+            </a>
+            <a href="#sobre" class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl text-base font-semibold text-white bg-white/10 hover:bg-white/15 border border-white/20 transition-all">
+              Conhecer a VN Soluções
+              <i data-lucide="arrow-down-right" class="w-5 h-5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Visual Card (Value Chain) -->
+        <div class="lg:col-span-5">
+          <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-3xl p-6 sm:p-8 shadow-2xl">
+            <div class="flex items-center justify-between border-b border-white/15 pb-4 mb-6">
+              <div>
+                <p class="text-xs uppercase tracking-wider text-blue-200 font-bold">Nossa Lógica de Gestão</p>
+                <h2 class="text-lg font-bold text-white mt-0.5">Do operacional à estratégia</h2>
+              </div>
+              <div class="w-10 h-10 rounded-xl bg-vn-orange/20 border border-vn-orange/40 flex items-center justify-center text-vn-orange">
+                <i data-lucide="trending-up" class="w-5 h-5"></i>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <div class="flex items-start gap-4 p-3.5 rounded-2xl bg-white/5 border border-white/10">
+                <div class="w-8 h-8 rounded-lg bg-vn-blue flex items-center justify-center font-bold text-sm shrink-0">1</div>
+                <div>
+                  <h3 class="font-bold text-white text-sm">Organização</h3>
+                  <p class="text-xs text-blue-100/80 mt-0.5">Documentação padronizada, plano de contas estruturado e rotinas em dia.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4 p-3.5 rounded-2xl bg-white/5 border border-white/10">
+                <div class="w-8 h-8 rounded-lg bg-vn-blue flex items-center justify-center font-bold text-sm shrink-0">2</div>
+                <div>
+                  <h3 class="font-bold text-white text-sm">Previsibilidade</h3>
+                  <p class="text-xs text-blue-100/80 mt-0.5">Fluxo de caixa projetado para antecipar cenários e evitar surpresas.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4 p-3.5 rounded-2xl bg-white/5 border border-white/10">
+                <div class="w-8 h-8 rounded-lg bg-vn-blue flex items-center justify-center font-bold text-sm shrink-0">3</div>
+                <div>
+                  <h3 class="font-bold text-white text-sm">Controle</h3>
+                  <p class="text-xs text-blue-100/80 mt-0.5">Conciliação rigorosa, indicadores gerenciais e reuniões de resultado.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4 p-3.5 rounded-2xl bg-vn-orange/20 border border-vn-orange/40">
+                <div class="w-8 h-8 rounded-lg bg-vn-orange flex items-center justify-center font-bold text-sm shrink-0">4</div>
+                <div>
+                  <h3 class="font-bold text-white text-sm">Crescimento</h3>
+                  <p class="text-xs text-blue-50 mt-0.5">Base sólida para o empresário focar no cliente e na expansão do negócio.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- QUEM SOMOS & PRINCÍPIOS -->
+  <section id="sobre" class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-12 items-start">
+        <div class="lg:col-span-5 space-y-5">
+          <span class="text-xs font-extrabold uppercase tracking-widest text-vn-orange">Quem Somos</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-vn-navy tracking-tight leading-tight">
+            Não somos uma consultoria tradicional. Nós executamos com você.
+          </h2>
+          <p class="text-slate-600 leading-relaxed">
+            A <strong>VN Soluções</strong> é especialista em BPO Financeiro e Serviços Administrativos. Atuamos diretamente dentro da operação dos nossos clientes: estruturamos processos, organizamos informações e operamos a rotina financeira de ponta a ponta.
+          </p>
+          <p class="text-slate-600 leading-relaxed">
+            Nosso papel é assumir a retaguarda administrativa e financeira para que você tenha segurança nas decisões e tempo livre para cuidar da sua equipe, dos seus clientes e da expansão da sua empresa.
+          </p>
+          <div class="pt-3 flex items-center gap-3 text-sm font-semibold text-vn-navy">
+            <i data-lucide="map-pin" class="w-5 h-5 text-vn-orange"></i>
+            Sede em Fortaleza/CE &bull; Atendimento Digital em todo o Brasil
+          </div>
+        </div>
+
+        <div class="lg:col-span-7">
+          <div class="bg-vn-light border border-slate-200/80 rounded-3xl p-6 sm:p-8">
+            <h3 class="text-lg font-bold text-vn-navy mb-2">Nossos Princípios</h3>
+            <p class="text-sm text-slate-500 mb-6">Os pilares que sustentam cada entrega e relacionamento com nossos clientes.</p>
+            
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div class="bg-white p-5 rounded-2xl border border-slate-200/70 shadow-sm">
+                <div class="w-10 h-10 rounded-xl bg-blue-50 text-vn-navy flex items-center justify-center mb-3">
+                  <i data-lucide="shield-check" class="w-5 h-5"></i>
+                </div>
+                <h4 class="font-bold text-slate-900">Confiança</h4>
+                <p class="text-sm text-slate-600 mt-1">Transparência total, responsabilidade nos dados e sigilo alinhado à LGPD.</p>
+              </div>
+
+              <div class="bg-white p-5 rounded-2xl border border-slate-200/70 shadow-sm">
+                <div class="w-10 h-10 rounded-xl bg-orange-50 text-vn-orange flex items-center justify-center mb-3">
+                  <i data-lucide="award" class="w-5 h-5"></i>
+                </div>
+                <h4 class="font-bold text-slate-900">Profissionalismo</h4>
+                <p class="text-sm text-slate-600 mt-1">Excelência técnica, padronização documental e alto rigor na entrega.</p>
+              </div>
+
+              <div class="bg-white p-5 rounded-2xl border border-slate-200/70 shadow-sm">
+                <div class="w-10 h-10 rounded-xl bg-blue-50 text-vn-navy flex items-center justify-center mb-3">
+                  <i data-lucide="lightbulb" class="w-5 h-5"></i>
+                </div>
+                <h4 class="font-bold text-slate-900">Proatividade</h4>
+                <p class="text-sm text-slate-600 mt-1">Antecipamos gargalos operacionais e construímos soluções práticas.</p>
+              </div>
+
+              <div class="bg-white p-5 rounded-2xl border border-slate-200/70 shadow-sm">
+                <div class="w-10 h-10 rounded-xl bg-orange-50 text-vn-orange flex items-center justify-center mb-3">
+                  <i data-lucide="heart-handshake" class="w-5 h-5"></i>
+                </div>
+                <h4 class="font-bold text-slate-900">Prestatividade</h4>
+                <p class="text-sm text-slate-600 mt-1">Atendimento próximo, humano e focado na melhor experiência do cliente.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAIS -->
+  <section id="diferenciais" class="py-20 bg-vn-light border-y border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center mb-14">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-vn-orange">Por que a VN Soluções</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-vn-navy mt-2">Diferenciais da nossa operação</h2>
+        <p class="text-slate-600 mt-3">Muito além de lançar números: entregamos continuidade, inteligência gerencial e estrutura adaptada à sua realidade.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white rounded-2xl p-6 border border-slate-200/80 card-hover">
+          <div class="w-12 h-12 rounded-2xl bg-vn-navy text-white flex items-center justify-center mb-5">
+            <i data-lucide="users" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">Time completo, não uma só pessoa</h3>
+          <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+            Você conta com uma equipe de especialistas e backup contínuo. Férias, faltas ou imprevistos nunca param o seu financeiro.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 border border-slate-200/80 card-hover">
+          <div class="w-12 h-12 rounded-2xl bg-vn-orange text-white flex items-center justify-center mb-5">
+            <i data-lucide="sliders" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">Solução sob medida</h3>
+          <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+            O desenho do serviço acompanha exatamente o momento, a estrutura, o segmento e os objetivos de crescimento da sua empresa.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 border border-slate-200/80 card-hover">
+          <div class="w-12 h-12 rounded-2xl bg-vn-navy text-white flex items-center justify-center mb-5">
+            <i data-lucide="bar-chart-3" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">Entrega consultiva</h3>
+          <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+            Apresentamos dashboards gerenciais claros, documentamos rotinas e participamos de reuniões periódicas para propor melhorias.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 border border-slate-200/80 card-hover">
+          <div class="w-12 h-12 rounded-2xl bg-vn-orange text-white flex items-center justify-center mb-5">
+            <i data-lucide="scale" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">Modelo proporcional ao porte</h3>
+          <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+            Escopo estruturado de forma justa e alinhada ao tamanho e ao volume operacional do seu negócio, evoluindo junto com você.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section id="servicos" class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-4">
+        <div>
+          <span class="text-xs font-extrabold uppercase tracking-widest text-vn-orange">O Que Fazemos</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-vn-navy mt-2">Tudo do financeiro em um só lugar</h2>
+        </div>
+        <p class="text-slate-500 text-sm max-w-md">
+          Selecione qualquer serviço abaixo para iniciar um atendimento ou solicitar um escopo personalizado para sua operação.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <button type="button" data-s="0" class="sv text-left bg-white border border-slate-200 rounded-2xl p-6 card-hover group cursor-pointer">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 rounded-xl bg-blue-50 text-vn-navy group-hover:bg-vn-navy group-hover:text-white transition-colors flex items-center justify-center">
+              <i data-lucide="credit-card" class="w-6 h-6"></i>
+            </div>
+            <span class="text-xs font-bold text-slate-400 group-hover:text-vn-orange flex items-center gap-1 transition-colors">
+              Solicitar <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </span>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">Contas a Pagar</h3>
+          <p class="text-sm text-slate-600 mt-2">Conferência rigorosa de boletos e notas, agendamento bancário e acompanhamento de vencimentos com fluxo de aprovação.</p>
+        </button>
+
+        <button type="button" data-s="1" class="sv text-left bg-white border border-slate-200 rounded-2xl p-6 card-hover group cursor-pointer">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 rounded-xl bg-blue-50 text-vn-navy group-hover:bg-vn-navy group-hover:text-white transition-colors flex items-center justify-center">
+              <i data-lucide="arrow-down-left" class="w-6 h-6"></i>
+            </div>
+            <span class="text-xs font-bold text-slate-400 group-hover:text-vn-orange flex items-center gap-1 transition-colors">
+              Solicitar <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </span>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">Contas a Receber e Cobrança</h3>
+          <p class="text-sm text-slate-600 mt-2">Controle de faturamento, emissão de cobranças, baixa de recebimentos, controle de cartões/convênios e régua de inadimplência.</p>
+        </button>
+
+        <button type="button" data-s="2" class="sv text-left bg-white border border-slate-200 rounded-2xl p-6 card-hover group cursor-pointer">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 rounded-xl bg-blue-50 text-vn-navy group-hover:bg-vn-navy group-hover:text-white transition-colors flex items-center justify-center">
+              <i data-lucide="landmark" class="w-6 h-6"></i>
+            </div>
+            <span class="text-xs font-bold text-slate-400 group-hover:text-vn-orange flex items-center gap-1 transition-colors">
+              Solicitar <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </span>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">Conciliação Bancária</h3>
+          <p class="text-sm text-slate-600 mt-2">Conferência periódica de extratos e saldos bancários garantindo que cada centavo registrado reflita a realidade do caixa.</p>
+        </button>
+
+        <button type="button" data-s="3" class="sv text-left bg-white border border-slate-200 rounded-2xl p-6 card-hover group cursor-pointer">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 rounded-xl bg-blue-50 text-vn-navy group-hover:bg-vn-navy group-hover:text-white transition-colors flex items-center justify-center">
+              <i data-lucide="pie-chart" class="w-6 h-6"></i>
+            </div>
+            <span class="text-xs font-bold text-slate-400 group-hover:text-vn-orange flex items-center gap-1 transition-colors">
+              Solicitar <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </span>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">Fluxo de Caixa e Indicadores</h3>
+          <p class="text-sm text-slate-600 mt-2">Fluxo de caixa realizado e projetado, dashboards gerenciais, apoio ao fechamento contábil e reunião mensal de resultados.</p>
+        </button>
+
+        <button type="button" data-s="4" class="sv text-left bg-white border border-slate-200 rounded-2xl p-6 card-hover group cursor-pointer">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 rounded-xl bg-blue-50 text-vn-navy group-hover:bg-vn-navy group-hover:text-white transition-colors flex items-center justify-center">
+              <i data-lucide="layers" class="w-6 h-6"></i>
+            </div>
+            <span class="text-xs font-bold text-slate-400 group-hover:text-vn-orange flex items-center gap-1 transition-colors">
+              Solicitar <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </span>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">Implantação de ERP (Omie)</h3>
+          <p class="text-sm text-slate-600 mt-2">Aproveitamos o sistema que você já usa ou implantamos o ERP Omie completo: cadastros, plano de contas, permissões e manuais.</p>
+        </button>
+
+        <button type="button" data-s="5" class="sv text-left bg-vn-light border border-slate-200 rounded-2xl p-6 card-hover group cursor-pointer">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 rounded-xl bg-orange-100 text-vn-orange group-hover:bg-vn-orange group-hover:text-white transition-colors flex items-center justify-center">
+              <i data-lucide="plus-circle" class="w-6 h-6"></i>
+            </div>
+            <span class="text-xs font-bold text-slate-400 group-hover:text-vn-orange flex items-center gap-1 transition-colors">
+              Combinar <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </span>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">Rotinas Administrativas Sob Demanda</h3>
+          <p class="text-sm text-slate-600 mt-2">Controle de repasses e comissionamentos, organização documental em nuvem e demandas administrativas específicas do seu segmento.</p>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO TRABALHAMOS (METODOLOGIA INTERATIVA) -->
+  <section id="metodologia" class="py-20 bg-vn-light border-y border-slate-200/80">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-vn-orange">Metodologia</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-vn-navy mt-2">Como trabalhamos</h2>
+        <p class="text-slate-600 mt-2">Do diagnóstico inicial à melhoria contínua. Clique em cada etapa para explorar.</p>
+      </div>
+
+      <!-- Stepper Buttons -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6" id="step-buttons"></div>
+
+      <!-- Step Detail Box -->
+      <div class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm" id="step-panel"></div>
+    </div>
+  </section>
+
+  <!-- ECOSSISTEMA E PARCERIAS -->
+  <section id="ecossistema" class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-6 space-y-6">
+          <span class="text-xs font-extrabold uppercase tracking-widest text-vn-orange">Ecossistema &amp; Parcerias</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-vn-navy tracking-tight">
+            Uma rede integrada ao lado do seu negócio
+          </h2>
+          <p class="text-slate-600 leading-relaxed">
+            Conectamos tecnologia, instituições financeiras e soluções estratégicas para fortalecer a operação dos nossos clientes e gerar oportunidades reais para empresas parceiras.
+          </p>
+
+          <div class="space-y-4 pt-2">
+            <div class="flex items-start gap-4 p-4 rounded-2xl bg-vn-light border border-slate-200/70">
+              <div class="w-11 h-11 rounded-xl bg-vn-navy text-white flex items-center justify-center shrink-0">
+                <i data-lucide="building-2" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-slate-900">Bancos &amp; Instituições Financeiras</h3>
+                <p class="text-sm text-slate-600 mt-0.5">Integração bancária e apoio estratégico para agilizar rotinas de pagamento, cobrança e crédito.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-4 rounded-2xl bg-vn-light border border-slate-200/70">
+              <div class="w-11 h-11 rounded-xl bg-vn-blue text-white flex items-center justify-center shrink-0">
+                <i data-lucide="cpu" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-slate-900">Sistemas &amp; ERPs (Omie)</h3>
+                <p class="text-sm text-slate-600 mt-0.5">Implantação, parametrização e operação assistida nos principais sistemas de gestão do mercado.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-4 rounded-2xl bg-vn-light border border-slate-200/70">
+              <div class="w-11 h-11 rounded-xl bg-vn-orange text-white flex items-center justify-center shrink-0">
+                <i data-lucide="network" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-slate-900">Juntaê · Serviços &amp; Recrutamento</h3>
+                <p class="text-sm text-slate-600 mt-0.5">Conexões seguras e humanizadas para entregar a pessoa certa ou o prestador ideal para a demanda da sua empresa.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Partner Program Card -->
+        <div class="lg:col-span-6">
+          <div class="bg-vn-navy text-white rounded-3xl p-8 sm:p-10 shadow-xl relative overflow-hidden">
+            <div class="relative z-10 space-y-6">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-xs font-bold uppercase tracking-wider text-vn-orange">
+                Programa de Parcerias B2B
+              </div>
+              <h3 class="text-2xl sm:text-3xl font-extrabold leading-tight">
+                Comércio ou serviço: apresentamos sua empresa aos nossos clientes
+              </h3>
+              <p class="text-blue-100 text-sm sm:text-base leading-relaxed">
+                Construímos pontes comerciais sólidas. Conhecemos sua operação, acompanhamos métricas de qualidade e indicamos suas soluções para nossa base de clientes.
+              </p>
+
+              <div class="grid sm:grid-cols-3 gap-3 pt-2">
+                <div class="bg-white/10 border border-white/15 rounded-2xl p-4">
+                  <span class="text-vn-orange font-extrabold text-lg">01</span>
+                  <h4 class="font-bold text-sm mt-1">Apresentação</h4>
+                  <p class="text-xs text-blue-100/80 mt-1">Mapeamos seu negócio e apresentamos aos nossos clientes.</p>
+                </div>
+                <div class="bg-white/10 border border-white/15 rounded-2xl p-4">
+                  <span class="text-vn-orange font-extrabold text-lg">02</span>
+                  <h4 class="font-bold text-sm mt-1">Métricas</h4>
+                  <p class="text-xs text-blue-100/80 mt-1">Acompanhamos resultados e indicadores da parceria.</p>
+                </div>
+                <div class="bg-white/10 border border-white/15 rounded-2xl p-4">
+                  <span class="text-vn-orange font-extrabold text-lg">03</span>
+                  <h4 class="font-bold text-sm mt-1">Encaminhamento</h4>
+                  <p class="text-xs text-blue-100/80 mt-1">Direcionamento contínuo conforme acordo de parceria.</p>
+                </div>
+              </div>
+
+              <div class="pt-2">
+                <button type="button" id="btn-parceiro" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-vn-navy bg-white hover:bg-blue-50 transition-colors cursor-pointer">
+                  Quero ser parceiro VN Soluções
+                  <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MINI DIAGNÓSTICO INTERATIVO -->
+  <section id="diagnostico" class="py-20 bg-vn-light border-y border-slate-200/80">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-vn-navy rounded-3xl p-8 sm:p-12 text-white shadow-xl">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/15 pb-6">
+          <div>
+            <span class="text-xs font-extrabold uppercase tracking-widest text-vn-orange">Autoavaliação Rápida</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold mt-1">Como está a saúde financeira da sua empresa?</h2>
+          </div>
+          <span class="text-xs font-semibold px-3 py-1.5 rounded-lg bg-white/10 text-blue-100 shrink-0">
+            5 perguntas &bull; 1 minuto
+          </span>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="w-full h-2 bg-white/15 rounded-full overflow-hidden my-6">
+          <div id="diag-progress" class="h-full bg-vn-orange transition-all duration-300" style="width: 0%"></div>
+        </div>
+
+        <!-- Quiz Body -->
+        <div id="diag-body" class="min-h-[180px] flex flex-col justify-center">
+          <p class="text-lg sm:text-xl font-medium text-blue-50 mb-6">
+            Responda a 5 perguntas rápidas para identificar o nível atual de maturidade e controle do seu financeiro.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <button type="button" id="diag-start" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold bg-vn-orange hover:bg-vn-orangeHover text-white transition-colors cursor-pointer">
+              <i data-lucide="play" class="w-4 h-4"></i>
+              Iniciar Mini-Diagnóstico
+            </button>
+            <a id="diag-wa-direct" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold bg-white/10 hover:bg-white/15 border border-white/20 text-white transition-colors cursor-pointer">
+              Agendar Diagnóstico Completo
+            </a>
+          </div>
+        </div>
+
+        <p class="text-xs text-blue-200/70 mt-6 pt-4 border-t border-white/10">
+          * Esta autoavaliação fornece um panorama inicial. O diagnóstico operacional completo é realizado em reunião individual com nosso especialista.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CENTRAL DE ATENDIMENTO, CHAMADOS E TUTORIAL -->
+  <section id="atendimento" class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-vn-orange">Central de Relacionamento</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-vn-navy mt-2">Atendimento, Chamados e Orientações</h2>
+        <p class="text-slate-600 mt-2">Registre uma solicitação com protocolo imediato ou siga o passo a passo operacional.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-10 items-start">
+        
+        <!-- Left Column: Form & Protocol -->
+        <div class="lg:col-span-7 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm">
+          <div class="flex items-center justify-between flex-wrap gap-3 mb-6">
+            <div>
+              <h3 id="form-title" class="text-xl font-bold text-vn-navy">Abrir Chamado ou Solicitação</h3>
+              <p id="form-sub" class="text-sm text-slate-500">Preencha os dados para gerar seu código de protocolo.</p>
+            </div>
+            
+            <!-- Mode Switch -->
+            <div id="mode-switch" class="inline-flex p-1 rounded-xl bg-slate-100 border border-slate-200">
+              <button type="button" id="mode-cliente" aria-pressed="true" class="px-4 py-1.5 rounded-lg text-xs font-bold transition-all bg-vn-navy text-white cursor-pointer">Sou Cliente</button>
+              <button type="button" id="mode-parceiro" aria-pressed="false" class="px-4 py-1.5 rounded-lg text-xs font-bold transition-all text-slate-600 hover:text-slate-900 cursor-pointer">Sou Parceiro</button>
+            </div>
+          </div>
+
+          <form id="chamado-form" class="space-y-4" novalidate>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label for="nome" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Seu Nome *</label>
+                <input id="nome" type="text" placeholder="Ex.: Maria Silva" class="w-full px-4 py-3 rounded-xl bg-vn-light border border-slate-200 text-sm focus:outline-none focus:border-vn-blue focus:bg-white transition-colors">
+              </div>
+              <div>
+                <label for="emp" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Empresa</label>
+                <input id="emp" type="text" placeholder="Nome da empresa" class="w-full px-4 py-3 rounded-xl bg-vn-light border border-slate-200 text-sm focus:outline-none focus:border-vn-blue focus:bg-white transition-colors">
+              </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label for="tel" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">WhatsApp *</label>
+                <input id="tel" type="tel" inputmode="tel" placeholder="(85) 90000-0000" class="w-full px-4 py-3 rounded-xl bg-vn-light border border-slate-200 text-sm focus:outline-none focus:border-vn-blue focus:bg-white transition-colors">
+              </div>
+              <div>
+                <label for="tipo" id="label-tipo" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Serviço *</label>
+                <select id="tipo" class="w-full px-4 py-3 rounded-xl bg-vn-light border border-slate-200 text-sm focus:outline-none focus:border-vn-blue focus:bg-white transition-colors"></select>
+              </div>
+            </div>
+
+            <div id="prioridade-wrap">
+              <span class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Prioridade</span>
+              <div class="grid grid-cols-2 gap-3">
+                <label class="cursor-pointer">
+                  <input type="radio" name="pr" value="Normal" checked class="peer sr-only">
+                  <div class="text-center py-2.5 px-4 rounded-xl border border-slate-200 bg-vn-light text-sm font-semibold text-slate-600 peer-checked:border-vn-navy peer-checked:bg-vn-navy/5 peer-checked:text-vn-navy transition-all">
+                    Normal
+                  </div>
+                </label>
+                <label class="cursor-pointer">
+                  <input type="radio" name="pr" value="Urgente" class="peer sr-only">
+                  <div class="text-center py-2.5 px-4 rounded-xl border border-slate-200 bg-vn-light text-sm font-semibold text-slate-600 peer-checked:border-vn-orange peer-checked:bg-vn-orange/10 peer-checked:text-vn-orange transition-all">
+                    Urgente
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between items-center mb-1.5">
+                <label for="desc" id="label-desc" class="block text-xs font-bold uppercase tracking-wider text-slate-600">Detalhes da Solicitação *</label>
+                <span class="text-xs text-slate-400"><span id="char-count">0</span>/500</span>
+              </div>
+              <textarea id="desc" rows="3" maxlength="500" placeholder="Descreva brevemente a necessidade da sua empresa..." class="w-full px-4 py-3 rounded-xl bg-vn-light border border-slate-200 text-sm focus:outline-none focus:border-vn-blue focus:bg-white transition-colors resize-none"></textarea>
+            </div>
+
+            <p id="form-err" class="text-xs font-semibold text-red-600 min-h-[16px]"></p>
+
+            <button type="submit" class="w-full py-3.5 px-6 rounded-xl bg-vn-navy hover:bg-vn-dark text-white font-bold text-sm transition-colors flex items-center justify-center gap-2 cursor-pointer">
+              <i data-lucide="file-check-2" class="w-4 h-4"></i>
+              Gerar Protocolo de Atendimento
+            </button>
+          </form>
+
+          <!-- Success State -->
+          <div id="chamado-ok" class="hidden text-center py-6 space-y-4 fade-in">
+            <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
+              <i data-lucide="check-circle-2" class="w-8 h-8"></i>
+            </div>
+            <div>
+              <h4 class="text-xl font-extrabold text-slate-900">Protocolo Registrado</h4>
+              <p id="proto-code" class="text-2xl sm:text-3xl font-extrabold text-vn-orange tracking-wider mt-1"></p>
+            </div>
+            <p class="text-sm text-slate-600 max-w-md mx-auto">
+              Envie este protocolo pelo WhatsApp para iniciar o atendimento imediato com seu consultor.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-3 justify-center pt-2">
+              <a id="wa-send-proto" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm transition-colors cursor-pointer">
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                Enviar no WhatsApp
+              </a>
+              <button type="button" id="btn-copy-proto" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-sm transition-colors cursor-pointer">
+                Copiar Código
+              </button>
+              <button type="button" id="btn-novo-chamado" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-600 font-semibold text-sm transition-colors cursor-pointer">
+                Novo Chamado
+              </button>
+            </div>
+          </div>
+
+          <!-- Saved Tickets History -->
+          <div class="mt-8 pt-6 border-t border-slate-200/80">
+            <div class="flex items-center justify-between mb-3">
+              <h4 class="text-xs font-extrabold uppercase tracking-wider text-slate-500">Meus Protocolos Recentes (Neste Dispositivo)</h4>
+            </div>
+            <div id="chamados-list" class="space-y-2"></div>
+          </div>
+        </div>
+
+        <!-- Right Column: Tutorial Checklist & FAQ -->
+        <div class="lg:col-span-5 space-y-6">
+          
+          <!-- Tutorial Box -->
+          <div class="bg-vn-light border border-slate-200 rounded-3xl p-6 sm:p-7">
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <div>
+                <h3 class="text-lg font-bold text-vn-navy">Guia Rápido do Cliente</h3>
+                <p class="text-xs text-slate-500">Clique nas etapas para marcar como concluídas.</p>
+              </div>
+              <div class="inline-flex p-1 rounded-xl bg-white border border-slate-200">
+                <button type="button" id="tut-chamado" aria-pressed="true" class="px-3 py-1 rounded-lg text-xs font-bold bg-vn-navy text-white transition-all cursor-pointer">Chamado</button>
+                <button type="button" id="tut-docs" aria-pressed="false" class="px-3 py-1 rounded-lg text-xs font-bold text-slate-600 transition-all cursor-pointer">Documentos</button>
+              </div>
+            </div>
+            <div id="tutorial-list" class="space-y-2.5"></div>
+          </div>
+
+          <!-- FAQ Accordion -->
+          <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-7 space-y-3">
+            <h3 class="text-lg font-bold text-vn-navy mb-2">Dúvidas Frequentes</h3>
+            
+            <details class="group border border-slate-200/80 rounded-2xl p-4 bg-vn-light/50">
+              <summary class="font-bold text-sm text-slate-800 cursor-pointer flex items-center justify-between">
+                <span>A VN Soluções substitui a contabilidade?</span>
+                <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform"></i>
+              </summary>
+              <p class="text-xs text-slate-600 mt-2.5 leading-relaxed">
+                Não. Atuamos na gestão financeira operacional e gerencial diária, trabalhando de forma integrada e organizada para apoiar o fechamento mensal do seu escritório de contabilidade.
+              </p>
+            </details>
+
+            <details class="group border border-slate-200/80 rounded-2xl p-4 bg-vn-light/50">
+              <summary class="font-bold text-sm text-slate-800 cursor-pointer flex items-center justify-between">
+                <span>Preciso trocar meu sistema atual?</span>
+                <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform"></i>
+              </summary>
+              <p class="text-xs text-slate-600 mt-2.5 leading-relaxed">
+                Não necessariamente. Aproveitamos o ERP que você já utiliza ou realizamos a implantação estruturada do sistema Omie conforme a necessidade da operação.
+              </p>
+            </details>
+
+            <details class="group border border-slate-200/80 rounded-2xl p-4 bg-vn-light/50">
+              <summary class="font-bold text-sm text-slate-800 cursor-pointer flex items-center justify-between">
+                <span>Como funciona a segurança e sigilo dos dados?</span>
+                <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform"></i>
+              </summary>
+              <p class="text-xs text-slate-600 mt-2.5 leading-relaxed">
+                Todas as informações financeiras e operacionais são tratadas sob rigoroso sigilo contratual, acessos rastreáveis e conformidade com a LGPD.
+              </p>
+            </details>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-vn-dark text-blue-100 py-14 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-3 gap-10 pb-10 border-b border-white/10">
+        <div class="space-y-4">
+          <div class="inline-block bg-white px-4 py-2 rounded-xl">
+            <img src="data:image/png;base64,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v0l4+690rP4o0nX9/PnL81J8fFRgYEA6k3355c+nTt3+8cePN2lS+4a+97+4m5QksXfv3okTJ44aNSo+Pv72229/9913hw4dumnTJs65pmmrVq06ceJEampqz549Gzp0KDk5WQgxbtw4f9l/v/r3L/1X6+h/F9nZ2T///PP8+fMPHjxoNpvHjBlTv379kydPjhs3bvbs2f59dF5e3u+//56enu50Oquqquw///rXvx566KEHHnhg+fLljLGrf+5vZMT6J3u/G+m6q+6ePXsmT568YsWKN954o23bti1btiwrK4uMjOzdu3f//v394hOAy+V68sknd+3a1aFDh3/84x+BgYF5eXm7du0KDw8XQnzwwQfnz59v27Ztbm7uwYMHT5061bp16+TkZM652+32q/D9+/fn5+cfOnQoPz9fVVUhRPXq1QcNGtSjR49mzZp17dq1U6dO6enp33///aFDh/xtvA2XvoHB/w169+7w9dcTf/tt1Wuvfbh23Y6163ZkZl28+283EKL//vuyJ5/8MDjI0aJ58v8+1cK/rN96662BgYF+f/SLL7544MCBtLS06upqAPn5+Z999llMTMwTTzyRlZUVFBR06NChffv2ff755zfeeOOSJUv80s7hcDgcjmt+3bX1+M399kII/xH/b6cA0K5du1OnTr344oufffbZ0aNHvV6vzWaLi4t78cUXjxw54h9aWZZNJtPu3btdLpe/h9aV0q7iV93U+3w93a1p2t13333u3DmHw1FVVeW/2Pfff7/D4Tj2F5mZmWaz+YUXXnC73f5b1Lt3b8bYli1bfvvtt7i4OIfDERMTExER4fV6Kysr/f5lAGfPnp08efLEiROPHz8uhEhMTGzZsmViYmLbtm3Hjx/fpk2b999/Pycnp7i42B/7evXAGBgY/D/3a3bt2vGrr576/fc1P/w4d978jZqmA2jXrlX9+jX69e00bGjvsLDQf7+b2G+v79ixY6dOnebNm9ekSZOMjIz09PTJkyfn5eUJIeLi4nJycoqKivLz861Wq7/3kF926rrudrurqqpiY2Nv7sB/U4BecfyK551zHh8f//nnnx87duzEiRPZ2dler7eqqur48eMfffRR8+bNnU6nf2G2Wq133333+vXr8/Ly/H7iio3cW6q2fY1/f+211w4fPnz8+PHExMSQkJDhw4dHRUVd+X2c22y26dOnnzx5sl69ei+88MLDDz+s63pubu7rr7/+66+/pqWlCSH861VZWdnp06dVVQWQlpZ29uxZt9stSdLUqVPDw8OjoqIee+yxp556au3atR6Px+v1Xts90sDA4P9H/8/A13/uXPb5CzmeMl+92lWCnI7/Q/5P6L4jR85mZ+e1atUoKir05k8m57ysrKxv37779+//4Ycf/v73v4eHh/t8vvfff98/8584ceKbb77p2bNnZWXl6dOn+/Xr16hRI6/Xu3Xr1vXr1wcGBp4+fdqfqG232288l/9bF8HlcjVt2jQvL2/NmjXR0dH79u377LPPioqKKisr9+3b549l83q9H3/8cUFBwYgRIyZNmlRRW/H6q9U1/X11kP/V3+9yuTZu3Lhz504hRJcuXXr16uXvqX3191VUVEyfPn39+vX79++fP3/+559/7s/sP3jw4EsvvfTtt99aLBZFUQoKCnw+36FDh9avX9+3b9/s7OyNGzdu3769pKSkTZs2Q4YM6devn79Z39SpUzds2BAYGOhP8f6PbpOBgYFBeT1xAP5d3//dT0yMjxw6pPPN22kASoBff/311ltv/euvv1auXOn/+927dz/55JNNmzb96KOP/D2J09LSVFVdt26dPzTzwQcf3LNnj6Zpa9eu/f77761W6zvvvON/u81m+1e+9Oqf9Hg8+/fvr6ysbNGiRWhoqP8qPvvss9dff/0999yzYMGCwsJCh8ORmZn5+++/+/XuxIkTi4uLAezYsePw4cM+n6+4uPj8+fOVlZV+m+x/8X4lJSUlJSXNmjWrZcuWrVq1SklJufq0F3/L6tWry8rK/vGPfzz33HNJSUlxcXFmszkhIeGVV17Jzs6+cOGCy+WyWq2RkZGxsbH5+fmfffbZzp07f/nll++++27t2rX+vZ0/k54x5v+j/979MTAwMPj//w1q1aq1dOnS5OTkd999t6yszG/Z7Nev3549e8aNG7d06dJdu3ZlZmb+/vvvpaWl3bp1W7du3b333vvaa6/t379/+/btW7Zs2bhx4+TJk5s0aeLfm/173x9a+913382ePTs7OzsvLy89Pf27775bvHixJElt2rQJDAx0uVw7duxYu3ZtTk7O6tWrT506tWjRos8+++zgwYM//fTTihUrtm/f/sQTT1y4cAHArFmzcnJy9u/fv2LFiv/3q6tWreqf1P0+m+v/Q1BQkK7rQghFUfxTvr+/p9+K1bBhw2effbZdu3b+c/X3W5Ikafjw4cOGDevVq1dKSop/Ivnf3h4DAwMDg6v59359m802cODA5557bsmSJXPnzg0LC/P5fO+++26vXr169eoVFRV15syZjIwMnU8uLi72l9e96aabnn/++XXr1s2aNSs9PT0nJ2fIkCFt2rTx37j/7P5Yrdannnrq/fff37p169SpU48cORIbG9ugQYNJkyadOXNG5/zkyZPTpk1LTk7Oz89/6KGHJk2atHPnTq/XW1xcfOzYMbvdPn78+KNHjzLG/N0BtmzZMm3atJycHEVR/hV9f62fO3LkyKOPPvrss88+++yzTz755I0v6iOPPNK0adOLFy9mZWX16tXLH42n03n8+PGZM2d+//33/g+ZPXv2ypUrL168eOrUqcLCws6dO99666233npro0aN/M3B/r1bY2BgYGDwf0b/v0b50qVLQ0NDL168+Mcff5SVlQkh4uPjBw4cOHbs2Pbt2+/bt2/ZsmUdOnSYNGmSX9/abDYhxLhx426//fYdO3ZMnjw5Kiqqa9euPXv29A/x1f2V/63P7tq164gRI3r06JGSknLHHXd4vd7Zs2dfuHAhPz//l19+uf3228+ePdu5c+cBAwZ4vd45c+Z07tw5MTExIyNj7ty5PXr0+Pzzz9PT07OyslauXHnw4ME333wzNTW1Y8eOCQkJdrtduIobX0V1rX79+sOHD2/VqpWiKK1atar/F1ef2uVylZSUdO/evWfPngC++eab+fPnnz9/vn///tdffn/f/fHjxw8bNiwuLm7lypU7d+50OBw9evSYNGnSHXfc0bBhw7lz565fvz4rK8vv+mGMNWrU6I033hgxYkSrVq2cTqfP5/vfb4yBgYGBwf+Q/r/e4d5+++0+ffps27btzz//9J8xKSlp8ODB0dHRgwcPHjx4cFhYWHlD7fJ979ixYyMiIpYvXx4XF5eSkhIeHg7A76wPDQ29tr+1/9S1591qtfbs2bNLly7+9sNFRUWTJ0+ePn36/Pnz27ZtO3LkyPj4+Ly8vLS0NMM4amBgYPBf499z0/9r+N9+dV0eP37966/fN2rUuG/fvtWqVbvaH013797duHHjK3Z9V+9m77///tdff126dOmWLVu8Xq/b7f7mm2/8Vdhv8k39+w48PT39zz//PHnyZHZ2dteuXUeNGjVixIh27dpJknTt1fT661gYGBgYGFzJf0GM+o8QQiQlJfXs2dMfS/mvY7fbhw8f/sQTT/iv1j89aH9o7vHjx/0m4KshhPjyyy/vu+++f7r42eTJk5ctW9a3b9+hQ4e2atUqNTXVL5sNDAwMDG6U/x0x+v+E6+r1a38p/g4bZ7fb7f/F5gIGBgYG/0v8B7z0BgYGBgYG/5t4624wMDAwMDD43/XSGxgYGBgY/E9jWEkNDAwMDAz+o1jMFrtNtVktFsv/a5/RyspKv+fYwMDAwMDgX8VqtTqdzhv8gCRJsiz/QyeSJMnv0r9hQ4z63x9N95X/4h99F/w7c74Q11lNKKX+f+fX27h83xM0/hZ8Z/Q9l+m67vV4vV6P1+f1erxut8vlcrk9HrfX46N0hBCcU4Fz875L/35lW4hA3N1f+7nU+O6n7n4f+z8/7/7v/q5k3F0z6r692bM+Z8a4O6/3M6hP0fE693+2b/f/n371q9W52v321+X5F7/84/9T8+f9x87/78+/m3e3f/044/dP1P3mX6dN3/38P33P+zuvzT61+sP9f+99f7775f7N968e238v//e+d39t86+688/dX2x497+v+2/36339j/t0c3v62717v1v+9/2q23v/f//tX9L773f3H/f3z319f8h18+/eTTf+m3/2e99P+lN9c/99f18f+O69pT9N8c/+x/+uP/gP89v//6538w9/9/9/9/9/9/9/+P7f8+f6lD/8X9/t/13+e/13/s/5/f6n+/9/9/9/9/9/9/63//P+42l/2+H//6x///63//8f//f/vv/3//7/99/+////7f///+/8f8DAAD//3y8M324+m2YAAAAAElFTkSuQmCC" alt="VN Soluções" class="h-9 w-auto">
+          </div>
+          <p class="text-sm text-blue-200/80 leading-relaxed">
+            Mais que serviços, uma parceria para o seu negócio. Especialistas em BPO Financeiro, implantação de processos e retaguarda administrativa.
+          </p>
+        </div>
+
+        <div class="space-y-3">
+          <h4 class="text-sm font-bold uppercase tracking-wider text-white">Navegação Rápida</h4>
+          <ul class="space-y-2 text-sm text-blue-200/80">
+            <li><a href="#sobre" class="hover:text-white transition-colors">Quem Somos</a></li>
+            <li><a href="#diferenciais" class="hover:text-white transition-colors">Diferenciais</a></li>
+            <li><a href="#servicos" class="hover:text-white transition-colors">Escopo de Serviços</a></li>
+            <li><a href="#metodologia" class="hover:text-white transition-colors">Como Trabalhamos</a></li>
+            <li><a href="#diagnostico" class="hover:text-white transition-colors">Mini-Diagnóstico</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <h4 class="text-sm font-bold uppercase tracking-wider text-white">Contato Direto</h4>
+          <ul class="space-y-2.5 text-sm text-blue-200/80">
+            <li class="flex items-center gap-2.5">
+              <i data-lucide="phone" class="w-4 h-4 text-vn-orange"></i>
+              <span>(85) 98961-5554</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <i data-lucide="mail" class="w-4 h-4 text-vn-orange"></i>
+              <a href="mailto:vn.servicos@icloud.com" class="hover:text-white transition-colors">vn.servicos@icloud.com</a>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <i data-lucide="map-pin" class="w-4 h-4 text-vn-orange"></i>
+              <span>Fortaleza / CE</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-blue-300/60">
+        <p>&copy; 2026 VN Soluções &bull; BPO Financeiro e Serviços Administrativos. Todos os direitos reservados.</p>
+        <p>Conformidade e sigilo de dados segundo a LGPD.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a id="fab-wa" target="_blank" rel="noopener" aria-label="Falar no WhatsApp" class="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white shadow-xl shadow-emerald-900/20 flex items-center justify-center transition-transform hover:scale-105 cursor-pointer">
+    <i data-lucide="message-circle" class="w-7 h-7"></i>
+  </a>
+
+  <!-- SCRIPT -->
+  <script>
+    (function() {
+      lucide.createIcons();
+
+      const WA_NUMBER = '5585989615554';
+      const STORAGE_KEY = 'vn_chamados_v2';
+      
+      const SERVICOS = [
+        'Contas a pagar',
+        'Contas a receber e cobrança',
+        'Conciliação bancária',
+        'Fluxo de caixa e indicadores',
+        'Implantação de ERP (Omie)',
+        'Rotinas administrativas sob demanda'
+      ];
+      
+      const PARCERIAS = [
+        'Comércio',
+        'Prestação de Serviços',
+        'Tecnologia / Sistemas',
+        'Outro segmento'
+      ];
+
+      let mode = 'cliente';
+      let lastProto = '';
+
+      const $ = (id) => document.getElementById(id);
+      const setWaLink = (el, msg) => {
+        if (el) el.href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+      };
+
+      // Links iniciais WhatsApp
+      setWaLink($('nav-wa'), 'Olá! Gostaria de conhecer melhor as soluções de BPO Financeiro da VN Soluções.');
+      setWaLink($('fab-wa'), 'Olá! Gostaria de falar com um consultor da VN Soluções.');
+      setWaLink($('diag-wa-direct'), 'Olá! Gostaria de agendar uma reunião de diagnóstico completo para minha empresa.');
+
+      // 1. METODOLOGIA (STEPPER)
+      const ETAPAS = [
+        {
+          num: '01',
+          icon: 'search',
+          titulo: 'Diagnóstico Operacional',
+          desc: 'Realizamos uma reunião aprofundada para compreender o modelo de negócio, o volume operacional, os processos atuais e os principais gargalos financeiros da empresa.'
+        },
+        {
+          num: '02',
+          icon: 'settings-2',
+          titulo: 'Implantação e Estruturação',
+          desc: 'Aproveitamos o ERP que sua empresa já utiliza ou implantamos o sistema Omie: cadastros, plano de contas gerencial, permissões de acesso e documentação das rotinas padrão.'
+        },
+        {
+          num: '03',
+          icon: 'repeat',
+          titulo: 'Operação Diária Recorrente',
+          desc: 'Assumimos a execução das rotinas acordadas: lançamentos, conferência e programação de pagamentos, acompanhamento de recebíveis, cobrança e conciliação bancária.'
+        },
+        {
+          num: '04',
+          icon: 'line-chart',
+          titulo: 'Gestão e Melhoria Contínua',
+          desc: 'Entregamos fechamento mensal, fluxo de caixa atualizado e dashboards de indicadores, conduzindo reuniões periódicas de resultados para apoiar suas decisões.'
+        }
+      ];
+
+      let activeStep = 0;
+      function renderSteps() {
+        const btnWrap = $('step-buttons');
+        const panel = $('step-panel');
+        btnWrap.innerHTML = '';
+
+        ETAPAS.forEach((st, idx) => {
+          const isSelected = idx === activeStep;
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = `p-4 rounded-2xl border text-left transition-all cursor-pointer ${
+            isSelected 
+              ? 'bg-vn-navy text-white border-vn-navy shadow-md' 
+              : 'bg-white text-slate-700 border-slate-200 hover:border-vn-blue'
+          }`;
+          btn.innerHTML = `
+            <div class="text-xs font-extrabold ${isSelected ? 'text-vn-orange' : 'text-slate-400'}">ETAPA ${st.num}</div>
+            <div class="font-bold text-sm mt-1 truncate">${st.titulo.split(' ')[0]}</div>
+          `;
+          btn.onclick = () => {
+            activeStep = idx;
+            renderSteps();
+          };
+          btnWrap.appendChild(btn);
+        });
+
+        const current = ETAPAS[activeStep];
+        panel.innerHTML = `
+          <div class="flex flex-col sm:flex-row sm:items-center gap-5 fade-in">
+            <div class="w-14 h-14 rounded-2xl bg-blue-50 text-vn-navy flex items-center justify-center shrink-0">
+              <i data-lucide="${current.icon}" class="w-7 h-7"></i>
+            </div>
+            <div>
+              <div class="text-xs font-extrabold uppercase tracking-wider text-vn-orange">Etapa ${current.num} de 04</div>
+              <h3 class="text-xl sm:text-2xl font-extrabold text-vn-navy mt-1">${current.titulo}</h3>
+              <p class="text-slate-600 mt-2 leading-relaxed">${current.desc}</p>
+            </div>
+          </div>
+        `;
+        lucide.createIcons();
+      }
+      renderSteps();
+
+      // 2. MINI-DIAGNÓSTICO
+      const PERGUNTAS = [
+        'Você sabe, hoje, exatamente quanto entra e quanto sai do caixa da empresa por semana?',
+        'As contas a pagar e a receber são conferidas e baixadas diariamente com comprovantes organizados?',
+        'A conciliação bancária (confronto entre sistema e extrato real) é feita com frequência?',
+        'Sua empresa possui um fluxo de caixa projetado para os próximos 30 a 90 dias?',
+        'Você recebe relatórios gerenciais ou indicadores claros para tomar decisões estratégicas?'
+      ];
+      let qIndex = 0;
+      let score = 0;
+
+      function renderQuiz() {
+        const body = $('diag-body');
+        const prog = $('diag-progress');
+
+        if (qIndex >= PERGUNTAS.length) {
+          prog.style.width = '100%';
+          let nivel = '';
+          let resumo = '';
+          if (score <= 3) {
+            nivel = 'Estágio Inicial · Hora de Estruturar';
+            resumo = 'Existem pontos críticos sem visibilidade ou controle diário. Uma implantação organizada trará segurança imediata para a operação.';
+          } else if (score <= 7) {
+            nivel = 'Estágio Intermediário · Bom Caminho com Lacunas';
+            resumo = 'Sua empresa já possui uma base de controle, mas faltam rotinas padronizadas e indicadores para ganhar previsibilidade.';
+          } else {
+            nivel = 'Estágio Estruturado · Foco em Inteligência';
+            resumo = 'Ótima organização! O próximo passo é delegar a execução operacional para liberar seu tempo e aprofundar a análise gerencial.';
+          }
+
+          body.innerHTML = `
+            <div class="space-y-4 fade-in">
+              <div class="inline-block px-3 py-1 rounded-lg bg-vn-orange/20 border border-vn-orange/40 text-vn-orange font-bold text-sm">
+                Pontuação: ${score} de 10 pontos
+              </div>
+              <h3 class="text-2xl font-extrabold text-white">${nivel}</h3>
+              <p class="text-blue-100 leading-relaxed">${resumo}</p>
+              <div class="pt-3 flex flex-col sm:flex-row gap-3">
+                <a id="diag-res-wa" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold bg-vn-orange hover:bg-vn-orangeHover text-white transition-colors cursor-pointer">
+                  Agendar Reunião de Diagnóstico
+                </a>
+                <button type="button" id="diag-restart" class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-semibold bg-white/10 hover:bg-white/15 text-white transition-colors cursor-pointer">
+                  Refazer Avaliação
+                </button>
+              </div>
+            </div>
+          `;
+          setWaLink(
+            $('diag-res-wa'),
+            `Olá! Realizei o mini-diagnóstico no site da VN Soluções (Resultado: ${score}/10 - ${nivel}) e gostaria de agendar o diagnóstico completo.`
+          );
+          $('diag-restart').onclick = () => {
+            qIndex = 0;
+            score = 0;
+            renderQuiz();
+          };
+          return;
+        }
+
+        prog.style.width = `${(qIndex / PERGUNTAS.length) * 100}%`;
+        body.innerHTML = `
+          <div class="space-y-5 fade-in">
+            <div class="text-xs font-bold uppercase tracking-wider text-blue-200">
+              Pergunta ${qIndex + 1} de ${PERGUNTAS.length}
+            </div>
+            <p class="text-lg sm:text-xl font-bold text-white leading-snug">${PERGUNTAS[qIndex]}</p>
+            <div class="grid sm:grid-cols-3 gap-3 pt-1">
+              <button type="button" data-pts="2" class="quiz-opt py-3.5 px-4 rounded-xl bg-white/10 hover:bg-vn-orange border border-white/20 hover:border-vn-orange font-bold text-sm text-white transition-all cursor-pointer">
+                Sim, totalmente
+              </button>
+              <button type="button" data-pts="1" class="quiz-opt py-3.5 px-4 rounded-xl bg-white/10 hover:bg-vn-orange border border-white/20 hover:border-vn-orange font-bold text-sm text-white transition-all cursor-pointer">
+                Em parte
+              </button>
+              <button type="button" data-pts="0" class="quiz-opt py-3.5 px-4 rounded-xl bg-white/10 hover:bg-vn-orange border border-white/20 hover:border-vn-orange font-bold text-sm text-white transition-all cursor-pointer">
+                Ainda não
+              </button>
+            </div>
+          </div>
+        `;
+
+        body.querySelectorAll('.quiz-opt').forEach((btn) => {
+          btn.onclick = () => {
+            score += Number(btn.getAttribute('data-pts'));
+            qIndex++;
+            renderQuiz();
+          };
+        });
+      }
+
+      $('diag-start').onclick = () => {
+        qIndex = 0;
+        score = 0;
+        renderQuiz();
+      };
+
+      // 3. FORMULÁRIO DE CHAMADOS E PARCERIAS
+      function populateSelect() {
+        const select = $('tipo');
+        select.innerHTML = '';
+        const list = mode === 'cliente' ? SERVICOS : PARCERIAS;
+        list.forEach((item) => {
+          const opt = document.createElement('option');
+          opt.value = item;
+          opt.textContent = item;
+          select.appendChild(opt);
+        });
+      }
+
+      function switchMode(newMode) {
+        mode = newMode;
+        const isCliente = mode === 'cliente';
+        
+        $('mode-cliente').setAttribute('aria-pressed', isCliente);
+        $('mode-parceiro').setAttribute('aria-pressed', !isCliente);
+        
+        $('mode-cliente').className = isCliente
+          ? 'px-4 py-1.5 rounded-lg text-xs font-bold transition-all bg-vn-navy text-white cursor-pointer'
+          : 'px-4 py-1.5 rounded-lg text-xs font-bold transition-all text-slate-600 hover:text-slate-900 cursor-pointer';
+          
+        $('mode-parceiro').className = !isCliente
+          ? 'px-4 py-1.5 rounded-lg text-xs font-bold transition-all bg-vn-navy text-white cursor-pointer'
+          : 'px-4 py-1.5 rounded-lg text-xs font-bold transition-all text-slate-600 hover:text-slate-900 cursor-pointer';
+
+        $('form-title').textContent = isCliente ? 'Abrir Chamado ou Solicitação' : 'Cadastro de Empresa Parceira';
+        $('form-sub').textContent = isCliente
+          ? 'Preencha os dados para gerar seu código de protocolo.'
+          : 'Comércio ou serviço: apresente sua empresa para nossa rede.';
+        $('label-tipo').textContent = isCliente ? 'Serviço Desejado *' : 'Segmento da Empresa *';
+        $('label-desc').textContent = isCliente ? 'Detalhes da Solicitação *' : 'Sobre sua Empresa e Soluções *';
+        $('prioridade-wrap').style.display = isCliente ? 'block' : 'none';
+        populateSelect();
+      }
+
+      $('mode-cliente').onclick = () => switchMode('cliente');
+      $('mode-parceiro').onclick = () => switchMode('parceiro');
+
+      // Clicar nos cards de serviços
+      document.querySelectorAll('.sv').forEach((card) => {
+        card.onclick = () => {
+          switchMode('cliente');
+          $('tipo').selectedIndex = Number(card.getAttribute('data-s'));
+          $('atendimento').scrollIntoView({ behavior: 'smooth' });
+          setTimeout(() => $('nome').focus({ preventScroll: true }), 450);
+        };
+      });
+
+      // Botão Quero ser parceiro
+      $('btn-parceiro').onclick = () => {
+        switchMode('parceiro');
+        $('atendimento').scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => $('nome').focus({ preventScroll: true }), 450);
+      };
+
+      // Máscara WhatsApp e Contador
+      $('tel').oninput = function() {
+        const d = this.value.replace(/\D/g, '').slice(0, 11);
+        let out = d;
+        if (d.length > 2) {
+          out = `(${d.slice(0, 2)}) ${d.slice(2, d.length > 10 ? 7 : 6)}${d.length > (d.length > 10 ? 7 : 6) ? '-' + d.slice(d.length > 10 ? 7 : 6) : ''}`;
+        }
+        this.value = out;
+      };
+
+      $('desc').oninput = function() {
+        $('char-count').textContent = this.value.length;
+      };
+
+      function loadChamados() {
+        try {
+          return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+        } catch (e) {
+          return [];
+        }
+      }
+
+      function saveChamados(arr) {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(arr));
+        } catch (e) {}
+      }
+
+      function generateProtocol() {
+        const d = new Date();
+        const pad = (n) => ('0' + n).slice(-2);
+        const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+        let rand = '';
+        for (let i = 0; i < 4; i++) rand += chars.charAt(Math.floor(Math.random() * chars.length));
+        return `VN-${String(d.getFullYear()).slice(2)}${pad(d.getMonth() + 1)}${pad(d.getDate())}-${rand}`;
+      }
+
+      function renderChamadosList() {
+        const list = loadChamados();
+        const container = $('chamados-list');
+        if (!list.length) {
+          container.innerHTML = '<p class="text-xs text-slate-400">Nenhum protocolo gerado neste aparelho ainda.</p>';
+          return;
+        }
+        container.innerHTML = '';
+        list.forEach((item, index) => {
+          const row = document.createElement('div');
+          row.className = 'flex items-center justify-between gap-3 p-3 rounded-xl bg-vn-light border border-slate-200/80 text-xs';
+          row.innerHTML = `
+            <div>
+              <span class="font-extrabold text-vn-navy">${item.proto}</span> &bull; 
+              <span class="font-semibold text-slate-700">${item.tipo}</span>
+              <div class="text-slate-400 mt-0.5">${item.nome} &bull; ${item.data}</div>
+            </div>
+            <button type="button" aria-label="Remover" class="text-slate-400 hover:text-red-500 p-1.5 cursor-pointer">
+              <i data-lucide="trash-2" class="w-4 h-4"></i>
+            </button>
+          `;
+          row.querySelector('button').onclick = () => {
+            const updated = loadChamados();
+            updated.splice(index, 1);
+            saveChamados(updated);
+            renderChamadosList();
+          };
+          container.appendChild(row);
+        });
+        lucide.createIcons();
+      }
+
+      $('chamado-form').onsubmit = function(e) {
+        e.preventDefault();
+        const nome = $('nome').value.trim();
+        const emp = $('emp').value.trim();
+        const telDigits = $('tel').value.replace(/\D/g, '');
+        const desc = $('desc').value.trim();
+        const err = $('form-err');
+
+        if (nome.length < 2) {
+          err.textContent = 'Por favor, informe seu nome.';
+          $('nome').focus();
+          return;
+        }
+        if (telDigits.length < 10) {
+          err.textContent = 'Informe um número de WhatsApp válido com DDD.';
+          $('tel').focus();
+          return;
+        }
+        if (desc.length < 10) {
+          err.textContent = 'Por favor, descreva um pouco mais a sua solicitação (mínimo 10 caracteres).';
+          $('desc').focus();
+          return;
+        }
+
+        err.textContent = '';
+        const proto = generateProtocol();
+        const tipo = $('tipo').value;
+        const isCliente = mode === 'cliente';
+        const prioridade = isCliente ? document.querySelector('input[name="pr"]:checked').value : 'Parceria';
+
+        const waMsg = [
+          `Olá! Sou ${nome}${emp ? ' (' + emp + ')' : ''}.`,
+          `${isCliente ? 'Protocolo de Atendimento:' : 'Solicitação de Parceria:'} *${proto}*`,
+          `${isCliente ? 'Serviço:' : 'Segmento:'} ${tipo}`,
+          isCliente ? `Prioridade: ${prioridade}` : null,
+          `Detalhes: ${desc}`,
+          `WhatsApp de contato: ${$('tel').value}`
+        ].filter(Boolean).join('\n');
+
+        const saved = loadChamados();
+        saved.unshift({
+          proto,
+          nome,
+          tipo,
+          data: new Date().toLocaleString('pt-BR', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' })
+        });
+        saveChamados(saved.slice(0, 15));
+
+        lastProto = proto;
+        $('proto-code').textContent = proto;
+        setWaLink($('wa-send-proto'), waMsg);
+
+        $('chamado-form').classList.add('hidden');
+        $('mode-switch').classList.add('hidden');
+        $('chamado-ok').classList.remove('hidden');
+        renderChamadosList();
+      };
+
+      $('btn-copy-proto').onclick = function() {
+        const btn = this;
+        navigator.clipboard?.writeText(lastProto);
+        btn.textContent = 'Copiado!';
+        setTimeout(() => { btn.textContent = 'Copiar Código'; }, 2000);
+      };
+
+      $('btn-novo-chamado').onclick = function() {
+        $('chamado-form').reset();
+        $('char-count').textContent = '0';
+        $('chamado-ok').classList.add('hidden');
+        $('chamado-form').classList.remove('hidden');
+        $('mode-switch').classList.remove('hidden');
+        switchMode('cliente');
+      };
+
+      // 4. TUTORIAL INTERATIVO
+      const TUTORIALS = {
+        chamado: [
+          ['Escolha o serviço', 'Selecione a rotina financeira desejada ou abra um chamado direto.'],
+          ['Preencha os dados', 'Informe nome, empresa, WhatsApp e descreva a necessidade.'],
+          ['Gere o protocolo', 'Receba seu código exclusivo de acompanhamento na hora.'],
+          ['Envie ao consultor', 'Clique para encaminhar o protocolo via WhatsApp e iniciar o atendimento.']
+        ],
+        docs: [
+          ['Extratos bancários', 'Envie os arquivos OFX ou PDF originais do banco diariamente (D+1).'],
+          ['Contas a pagar', 'Encaminhe boletos, faturas e notas fiscais que aguardam programação.'],
+          ['Comprovantes', 'Disponibilize recibos e comprovantes após a aprovação/baixa.'],
+          ['Pastas por Ano e Mês', 'Organize na nuvem por período (Ex.: 2026 > 11-NOVEMBRO).']
+        ]
+      };
+
+      function renderTutorial(tab) {
+        const list = $('tutorial-list');
+        list.innerHTML = '';
+        TUTORIALS[tab].forEach((step, idx) => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'w-full text-left flex items-start gap-3 p-3.5 rounded-2xl bg-white border border-slate-200/90 hover:border-vn-blue transition-all cursor-pointer group';
+          btn.innerHTML = `
+            <span class="step-badge w-7 h-7 rounded-full bg-vn-navy text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5 transition-colors">${idx + 1}</span>
+            <div>
+              <div class="font-bold text-sm text-slate-900">${step[0]}</div>
+              <div class="text-xs text-slate-500 mt-0.5 leading-relaxed">${step[1]}</div>
+            </div>
+          `;
+          btn.onclick = () => {
+            const done = btn.classList.toggle('border-emerald-500');
+            btn.classList.toggle('bg-emerald-50/40', done);
+            const badge = btn.querySelector('.step-badge');
+            badge.classList.toggle('bg-emerald-600', done);
+            badge.classList.toggle('bg-vn-navy', !done);
+            badge.textContent = done ? '✓' : String(idx + 1);
+          };
+          list.appendChild(btn);
+        });
+
+        const isChamado = tab === 'chamado';
+        $('tut-chamado').className = isChamado
+          ? 'px-3 py-1 rounded-lg text-xs font-bold bg-vn-navy text-white transition-all cursor-pointer'
+          : 'px-3 py-1 rounded-lg text-xs font-bold text-slate-600 transition-all cursor-pointer';
+        $('tut-docs').className = !isChamado
+          ? 'px-3 py-1 rounded-lg text-xs font-bold bg-vn-navy text-white transition-all cursor-pointer'
+          : 'px-3 py-1 rounded-lg text-xs font-bold text-slate-600 transition-all cursor-pointer';
+      }
+
+      $('tut-chamado').onclick = () => renderTutorial('chamado');
+      $('tut-docs').onclick = () => renderTutorial('docs');
+
+      // Inicialização
+      switchMode('cliente');
+      renderChamadosList();
+      renderTutorial('chamado');
+    })();
+  </script>
+</body>
+</html>

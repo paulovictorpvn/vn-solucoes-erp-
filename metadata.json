@@ -1,0 +1,6 @@
+{
+  "name": "VN Gestão — ERP & Controladoria BPO",
+  "description": "Plataforma empresarial integrada de BPO Financeiro, Controladoria, Processos, Governança, VN Service Desk, Gestão de Incidentes e Monitoramento de Estabilidade.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
